@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-1.5.js"></script>
+</head>
+<body>
+  <ul>
+	    {% for comment in comments %}
+	        <li>
+				<a href="{% url comment comment_id=comment.pk %}">{{ comment.title }}</a><a href="{% url comment_delete comment_id=comment.pk %}">delete</a>
+			</li>
+		{% empty %}
+			<li>
+				No posts yet!
+			</li>
+	    {% endfor %}
+	</ul>
+  <div id="result"/>
+	<form action="." id="commentForm" method="post" >
+    {% csrf_token %}
+		{{ form.as_p }}
+	  <input type="submit" value="Save">
+	</form>
+  <!-- the result of the search will be rendered inside this div -->
+
+	
+<script>
+  // attach a submit handler to the form
+
+
+
+  $("#commentForm").submit(function(event) {
+
+    // stop form from submitting normally
+    event.preventDefault(); 
+        
+    // get some values from elements on the page:
+    var $form = $( this ),
+        url = $form.attr( 'action' );
+    
+    // Send the data using post and put the results in a div
+    $.post( url, $form.serialize(), function( data ) {
+
+          $.each(data.comments, function(i, comment) {
+            console.log(i, comment); 
+            $("<a>").attr("href", "/"+comment.id).text(comment.title).appendTo("#result").wrap("<li/>");
+          });
+      }, "json");
+    
+  });
+</script>
+
+</body>
+</html>

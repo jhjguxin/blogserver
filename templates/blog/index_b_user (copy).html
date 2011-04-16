@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-1.5.js"></script>
+</head>
+<body>
+  <ul>
+	    {% for b_user in b_users %}
+	        <li>
+				<a href="{% url b_user b_user_id=b_user.pk %}">{{ b_user.title }}</a><a href="{% url delete_b_user b_user_id=b_user.pk %}">delete</a>
+			</li>
+		{% empty %}
+			<li>
+				No posts yet!
+			</li>
+	    {% endfor %}
+	</ul>
+	
+	<form action="." id="b_userForm" method="post">
+    {% csrf_token %}
+		{{ form.as_p }}
+	  <input type="submit" value="Save">
+	</form>
+  <!-- the result of the search will be rendered inside this div -->
+  <div id="result"/>
+	
+<script>
+  // attach a submit handler to the form
+  $("#b_userForm").submit(function(event) {
+
+    // stop form from submitting normally
+    event.preventDefault(); 
+        
+    // get some values from elements on the page:
+    var $form = $( this ),
+        url = $form.attr( 'action' );
+    
+    // Send the data using post and put the results in a div
+    $.post( url, $form.serialize(), function( data ) {
+	  alert(data.b_users)
+          $.each(data.b_users, function(i, b_user) {
+            console.log(i, b_user); 
+            $("<a>").attr("href", "/"+b_user.id).text(b_user.title).appendTo("#result").wrap("<li/>");
+          });
+      }, "json");
+    
+  });
+</script>
+
+</body>
+</html>

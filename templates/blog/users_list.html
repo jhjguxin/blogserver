@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Blog user</title>
+	</head>
+	<body>
+
+		<h1>
+			Blog user
+		</h1>
+		
+		<ul>
+		    {% for user in users %}
+		        <li>
+					<a href="{% url u_change user_id=user.pk %}">{{ user.username }}</a><a href="{% url u_change user_id=user.pk %}">改资料</a><a href="{% url passwordchange user_id=user.pk %}">改密码</a> 
+					
+				</li>
+			{% empty %}
+				<li>
+					No posts yet!
+				</li>
+		    {% endfor %}
+		</ul>
+
+		<p>
+			<a href="{% url user_create %}">Create a new user</a>
+		</p>
+		
+	</body>
+</html>

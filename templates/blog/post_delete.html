@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Delete {{posts.title}}</title>
+	</head>
+	<body>
+
+		{% if post %}
+			<h1>Delete {{posts.title}}</h1>
+		{% endif %}
+
+		<p>
+			Are you sure you want to delete the post <strong>{{ posts.title }}</strong>?
+		</p>
+		
+		<form action="." method="post">
+			
+			{% csrf_token %}
+		
+			<input type="submit" value="Delete">
+			or <a href="{% url posts_list %}">cancel</a>
+			
+		</form>
+		
+	</body>
+</html>

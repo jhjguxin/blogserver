@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Blog comment</title>
+	</head>
+	<body>
+
+		<h1>
+			Blog comment
+		</h1>
+		
+		<ul>
+		    {% for comment in comments %}
+		        <li>
+					<a href="{% url comment comment_id=comment.pk %}">{{ comment.title }}</a>
+					(<a href="{% url comment_delete comment_id=comment.pk %}">delete</a>)
+				</li>
+			{% empty %}
+				<li>
+					No posts yet!
+				</li>
+		    {% endfor %}
+		</ul>
+
+		<p>
+			<a href="{% url comment_create %}">Create a new comment</a>
+		</p>
+		
+	</body>
+</html>

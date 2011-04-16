@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ comments.title }}</title>
+	</head>
+	<body>
+
+		{% if comments %}
+			<h1>{{ comments.title }}</h1>
+		{% else %}
+			<h1>Edit comments</h1>
+		{% endif %}
+
+		<form action="." method="post">
+			
+			{% csrf_token %}
+			
+			{{ form.as_p }}
+		
+			<input type="submit" value="Save">
+			
+		</form>
+		
+	</body>
+</html>
