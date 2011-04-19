@@ -1,13 +1,15 @@
 from django import forms
-from blogserver.apps.blog.models import Comment,Post
+from blogserver.apps.blog.models import Post
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm,UserChangeForm,PasswordChangeForm
+"""
 class CommentsForm(forms.ModelForm):
-    """Creates/updates a blog post."""
+    "Creates/updates a blog post."
     
     class Meta:
         model = Comment
         fields = ('id','title','reviewer','email','content',)
+"""
 class PostsForm(forms.ModelForm):
     """Creates/updates a blog post."""
     

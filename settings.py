@@ -73,16 +73,21 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
- #   "django.middleware.csrf.CsrfMiddleware",
- #   "django.middleware.csrf.CsrfViewMiddleware",
- #   "django.middleware.csrf.CsrfResponseMiddleware",
+    "django.middleware.csrf.CsrfMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.middleware.csrf.CsrfResponseMiddleware",
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'pagination.middleware.PaginationMiddleware',
     'dynamicresponse.middleware.api.APIMiddleware',
     'dynamicresponse.middleware.dynamicformat.DynamicFormatMiddleware',
 
 )
-
+TEMPLATE_CONTEXT_PROCESSORS = (
+        "django.core.context_processors.auth",
+        "django.core.context_processors.debug",
+        "django.core.context_processors.i18n",
+        "django.core.context_processors.media",
+        "django.core.context_processors.request")
 ROOT_URLCONF = 'blogserver.urls'
 
 TEMPLATE_DIRS = (
@@ -96,8 +101,13 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
+    'django.contrib.admindocs',
+    'django.contrib.webdesign',
+    'django.contrib.comments',
+    'django.contrib.flatpages',
     'django.contrib.markup',
     'blogserver.apps.blog',#我是在根目录创建好app在放在apps下面的如果提示找不到apps.blog则是因为apps目录下面没有__init__.py文件
+    'django_blog.profiles',
     'blogserver.apps.about',
     'blogserver.api',
     'gravatar',
@@ -105,7 +115,7 @@ INSTALLED_APPS = (
     'pagination',
 
 )
-
+AUTH_PROFILE_MODULE	 = 'profiles.profile'
 #FIXTURE_DIRS = (
 #    os.path.join(BASE_DIR, 'fixtures'),
 #)

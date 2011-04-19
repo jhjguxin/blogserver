@@ -43,8 +43,8 @@ class TagAdmin(admin.ModelAdmin):
 #  list_filter=('hoter',)
 #    search_fields=('title','author','tag','category',)
 #  fields=('num','name','img','writer','wdate','notes',)
-class CommentAdmin(admin.ModelAdmin):
-    list_display=('title','reviewer','email','content','created_on')
+#class CommentAdmin(admin.ModelAdmin):
+#    list_display=('title','reviewer','email','content','created_on')
 #  list_filter=('hoter',)
     search_fields=('title',)
 class UserAdmin(admin.ModelAdmin):
@@ -52,7 +52,7 @@ class UserAdmin(admin.ModelAdmin):
 #  list_filter=('hoter',)
     search_fields=('username','first_name','last_name','email',)
 
-admin.site.register(Comment,CommentAdmin)
+#admin.site.register(Comment,CommentAdmin)
 #admin.site.register(User,UserAdmin)
 admin.site.register(Post,PostAdmin)
 admin.site.register(Category, CategoryAdmin)

@@ -26,6 +26,7 @@ urlpatterns = patterns('',
     
     # Tag
     (r'^tag/', include('apps.blog.urls.tags')),
-
+    # Comments
+    (r'^comments/', include('django.contrib.comments.urls')),
 
 )

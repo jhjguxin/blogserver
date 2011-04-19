@@ -1,4 +1,4 @@
-
+@import url("reset.css");
 /*
 Design by Free CSS Templates
 http://www.freecsstemplates.org
@@ -432,6 +432,13 @@ hr { display: none; }
 
 #calendar #today {
 	background: #24130F;
+}
+
+
+
+div#comment_form form div {
+	margin: 3px;
+	float: left;
 }
 
 /* Footer */

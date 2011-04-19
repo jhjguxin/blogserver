@@ -1,5 +1,5 @@
 from django.contrib.syndication.feeds import Feed
-from blogserver.apps.blog.models import Post# Category
+from blogserver.apps.blog.models import Post,Category# Category
 
 
 class LatestPosts(Feed):
