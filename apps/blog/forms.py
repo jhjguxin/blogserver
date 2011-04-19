@@ -13,8 +13,8 @@ class PostsForm(forms.ModelForm):
     
     class Meta:
         model = Post
-        fields = ('id','title','author','tag','category','img','content',)
-#        fields = ('id','title','author','tag','category','content','hoter',)
+        fields = ('id','title','slug','status','author','tag','categories','img','content',)
+#        fields = ('id','title','author','tag','categories','content','hoter',)
 
 class RegisterForm(UserCreationForm):
     """Creates a blog user."""

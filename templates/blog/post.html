@@ -1,25 +1,37 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>{{ posts.title }}</title>
-	</head>
-	<body>
-
-		{% if posts %}
-			<h1>{{ posts.title }}</h1>
-		{% else %}
-			<h1>Edit post</h1>
-		{% endif %}
-
-		<form action="." method="post">
-			
-			{% csrf_token %}
-			
-			{{ form.as_p }}
-		
-			<input type="submit" value="Save">
-			
-		</form>
-		
-	</body>
-</html>
+{% load comments %}
+{% load comparison %}
+{% get_comment_count for object as comment_count %}
+<div class="post">
+    <div class="header">
+        <h2><a class="title" href="{{ object.get_absolute_url }}">{{ object.title }}</a></h2>
+        <p class="date_published"> 
+			{{ object.date_published|date:"l, F jS, Y @ g:i A" }} \\
+			{% if object.author.get_profile %}
+       	 		<a href="{{ object.author.get_profile.get_absolute_url }}">{{ object.author.get_full_name }}</a>
+			{% else %}
+				{{ object.author.get_full_name }}
+			{% endif %}
+		</p>
+        <p class="comment_count"><a href="{{ object.get_absolute_url }}#comments_list">{{ comment_count }}</a></p>
+    </div>
+    <div class="post_body">
+        {% if post_display %}
+            {{ object.body|safe }}
+        {% else %}
+            {% with object.body|wordcount as size %}
+                {% if_greater size 150 %}
+                    {{ object.body|safe|truncatewords_html:150 }}
+                    <a href="{{ object.get_absolute_url }}"> Continue Reading... </a>
+                {% else %}
+                    {{ object.body|safe }}
+                    <a href="{{ object.get_absolute_url }}"> Read Comments({{ comment_count }})</a>
+                {% endif_greater %}
+            {% endwith %}
+        {% endif %}
+    </div>
+    <div class="post_tags">
+        {% for tag in object.tags.all %}
+            <a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>
+        {% endfor %}
+    </div>
+</div>

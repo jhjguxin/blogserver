@@ -7,6 +7,7 @@ from django.utils.encoding import smart_str
 from django.utils.hashcompat import md5_constructor, sha_constructor
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.admin import UserAdmin
+#from markdown import markdown 可以尝试在编辑Post 后提交views里面转换
 
 class ProfileBase(type):  
   def __new__(cls, name, bases, attrs):  
@@ -104,33 +105,104 @@ CATEGORY = (
     (u'杂文', u'杂文'),
 )
 class Tag(models.Model):
-  "the class of Tag"
-  name = models.CharField(max_length=20,default='tag')
+  name=models.CharField(max_length=255)
+  slug=models.SlugField(unique=True)
+        
+  def __unicode__(self):
+    return self.name
+            
+  class Meta:
+    ordering = ['name']
+        
+  @models.permalink
+  def get_absolute_url(self):
+    return('tag_detail', (), {'slug': self.slug })
+class Category(models.Model):
+        name=models.CharField(max_length=255)
+        slug=models.SlugField(unique=True)
+        
+        def __unicode__(self):
+                return self.name
+            
+        class Meta:
+            ordering = ['name']
+            verbose_name_plural = "categories"
+        
+        @models.permalink
+        def get_absolute_url(self):
+                return('category_detail', (), {'slug': self.slug })
+class Live(models.Manager):
+  """
+  Customer Manager that is aware of Post statues
+  """
 
+  def get_query_set(self):
+    return super(Live, self).get_query_set().filter(status__exact=Post.LIVE_STATUS)
 class Post(models.Model):
   "the class of Post"
+  LIVE_STATUS = 1
+  DRAFT_STATUS = 2
+  HIDDEN_STATUS = 3
+        
+  statuses = (
+                (LIVE_STATUS, 'Live'),
+                (DRAFT_STATUS, 'Draft'),
+                (HIDDEN_STATUS,'Hidden'),
+             )
   title = models.CharField(max_length=255)
-  author = models.ForeignKey(User)
-  tag=models.ForeignKey(Tag,blank=True,null=True)
-  category= models.CharField(max_length=2, choices=CATEGORY)
-  img=models.ImageField('Image',upload_to='upload-img')
-  created_on = models.DateTimeField(auto_now_add=True)
+  slug = models.SlugField(unique_for_date="created_on")
+  img=models.ImageField('Image',upload_to='upload-img',blank=True,null=True)
   content = models.TextField(blank=False)
+
+  author = models.ForeignKey(User)
+
+  tag=models.ManyToManyField(Tag,blank=True,null=True)
+  categories = models.ForeignKey(Category)
+  status = models.IntegerField(choices=statuses)        
   comments = models.ForeignKey(Comment,blank=True,null=True)
+
+  created_on = models.DateTimeField(auto_now_add=True,editable=False)
+  date_modified = models.DateTimeField(auto_now_add=True, editable=False)
+  date_published = models.DateTimeField(auto_now_add=True,editable=False)
   hoter=models.IntegerField(blank=True,default=0)
     
+  # manager
+  live = Live()
+  objects = models.Manager()
+
+  class Meta:
+    ordering = ['-created_on']
+                
+  def save(self):
+    import datetime
+    self.created_on = datetime.datetime.now()
+    super(Post, self).save()
+
+  @models.permalink
+  def get_absolute_url(self):
+    return('post_detail', (), {
+                    'year': self.date_published.strftime("%Y"),
+                    'month': self.date_published.strftime("%m").lower(),
+                    'day': self.date_published.strftime("%d"),
+                    'slug': self.slug })
+        
   def __unicode__(self):
     return self.title
+
   def serialize_fields(self):
     """Only these fields will be included in API responses."""
     return [
            'id',
             'title',
+            'slug',
+            'status',
             'author',
             'tag',
-            'category',
+            'categories',
             'img',
             'created_on',
+            'date_published',
+            'date_modified',
             'content',
             'comments',
             'hoter']
