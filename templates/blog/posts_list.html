@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Blog post</title>
-	</head>
-	<body>
+{% extends "base.html" %}
+{% block title %}Blog post录{% endblock %}
+{% block body %}
 
 		<h1>
 			Blog post
@@ -12,8 +9,8 @@
 		<ul>
 		    {% for post in posts %}
 		        <li>
-					<a href="{% url post post_id=post.pk %}">{{ post.title }}</a>
-					(<a href="{% url post_delete post_id=post.pk %}">delete</a>)
+					<h2><a href="{% url post post_id=post.pk %}">{{ post.title }}</a>
+					(<a href="{% url post_delete post_id=post.pk %}">delete</a>)</h2>
 				</li>
 			{% empty %}
 				<li>
@@ -26,5 +23,4 @@
 			<a href="{% url post_create %}">Create a new post</a>
 		</p>
 		
-	</body>
-</html>
+{% endblock %}

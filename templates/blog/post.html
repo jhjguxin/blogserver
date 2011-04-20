@@ -16,14 +16,14 @@
     </div>
     <div class="post_body">
         {% if post_display %}
-            {{ object.body|safe }}
+            {{ object.content|safe }}
         {% else %}
-            {% with object.body|wordcount as size %}
+            {% with object.content|wordcount as size %}
                 {% if_greater size 150 %}
-                    {{ object.body|safe|truncatewords_html:150 }}
+                    {{ object.contenty|safe|truncatewords_html:150 }}
                     <a href="{{ object.get_absolute_url }}"> Continue Reading... </a>
                 {% else %}
-                    {{ object.body|safe }}
+                    {{ object.content|safe }}
                     <a href="{{ object.get_absolute_url }}"> Read Comments({{ comment_count }})</a>
                 {% endif_greater %}
             {% endwith %}

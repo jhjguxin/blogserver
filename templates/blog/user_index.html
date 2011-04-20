@@ -7,7 +7,7 @@
   <ul>
 	    {% for user in users %}
 	        <li>
-				<a href="{% url user user_id=user.pk %}">{{ user.username }}</a><a href="{% url delete_user user_id=user.pk %}">delete</a>
+				<a href="{% url u_change user_id=user.pk %}">{{ user.username }}</a><a href="{% url delete_user user_id=user.pk %}">delete</a>
 			</li>
 		{% empty %}
 			<li>

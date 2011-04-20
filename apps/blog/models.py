@@ -152,8 +152,8 @@ class Post(models.Model):
                 (DRAFT_STATUS, 'Draft'),
                 (HIDDEN_STATUS,'Hidden'),
              )
-  title = models.CharField(max_length=255)
-  slug = models.SlugField(unique_for_date="created_on")
+  title = models.CharField(max_length=255,unique=True)
+  slug = models.SlugField(unique_for_date="created_on",unique=True)
   img=models.ImageField('Image',upload_to='upload-img',blank=True,null=True)
   content = models.TextField(blank=False)
 

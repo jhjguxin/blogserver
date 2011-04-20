@@ -26,6 +26,7 @@ def test_js(request):
     return render_to_response('test_js.html', {}, RequestContext(request))
 """
 @ csrf_exempt
+@login_required
 def post_index(request):
   """Lists all blog post."""
     
@@ -39,28 +40,29 @@ def post_index(request):
   posts = Post.objects.all()
   #pdb.set_trace()
   return SerializeOrRender('blog/post_index.html', { 'posts': posts }, extra={ 'form': form })
-
+@login_required
 def posts_list(request):
     """Lists all blog post."""
     
     posts = Post.objects.all()
     return SerializeOrRender('blog/posts_list.html', { 'posts': posts })
 
-    
+@login_required    
 def post_delete(request, post_id):
     """Deletes the blog post."""
-    
+    ok=False    
     post = get_object_or_404(Post.objects.all(), pk=post_id)
+    if post.author.username==request.user.username:
+#        pdb.set_trace()
+        ok=True
+        if request.method == 'POST':
+         
+            post.delete()
+            return SerializeOrRedirect(reverse('posts_list'), {}, status=CR_DELETED)
     
-    if request.method == 'POST':
-
-        post.delete()
-        return SerializeOrRedirect(reverse('posts_list'), {}, status=CR_DELETED)
     
-    else:
-        
-        return SerializeOrRender('blog/post_delete.html', { 'post': post }, status=CR_CONFIRM)
-
+    return SerializeOrRender('blog/post_delete.html', { 'post': post,'ok':ok }, status=CR_CONFIRM)
+@login_required
 def post(request, post_id=None):
     """Displays, creates or updates a blog posts."""
     
@@ -71,13 +73,18 @@ def post(request, post_id=None):
     if request.method == 'POST':
         
         form = PostsForm(request.POST, instance=post)
+
         if form.is_valid():
-            post = form.save()
-            return SerializeOrRedirect(reverse('posts_list'), { 'post': post })
+            ct=form.cleaned_data
+            #pdb.set_trace()
+            post=Post(title=ct['title'],slug=ct['slug'],categories=ct['categories'],img=ct['img'],content=ct['content'],status=ct['status'],author=request.user,)
+            post.save()
+            posts = Post.objects.all()
+            return SerializeOrRedirect(reverse('posts_list'), { 'posts': posts })
             
     else:
         
         form = PostsForm(instance=post)
     
-    return SerializeOrRender('blog/post.html', { 'post': post }, extra={ 'form': form })
+    return SerializeOrRender('blog/post_edit.html', { 'post': post }, extra={ 'form': form })
 

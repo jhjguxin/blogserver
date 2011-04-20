@@ -74,6 +74,26 @@ hr { display: none; }
 
 #wrapper {
 }
+/* Certification*/
+#Certification{
+	width: 1000px;
+	/*height: 180px;*/
+	margin: 0 auto;
+
+
+}
+/* register*/
+
+div#register form label {
+	width: 100px;
+	padding: 5px 0px 5px 0px;
+	float: left;
+}
+div#register form input {
+
+	margin: 5px 0px 5px 0px;
+
+}
 
 /* Header */
 

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load pagination_tags %}
-{% block title %}Vitaly Babiy's Blog{% endblock %}
+{% block title %}风尘{% endblock %}
 {% block body %}
     <h2 class="category"> {{ object.name }} </h2>
     {% with object.post_set.all as posts %}

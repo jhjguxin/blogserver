@@ -1,26 +1,28 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Delete {{posts.title}}</title>
-	</head>
-	<body>
+{% extends "base.html" %}
+{% block title %}Delete {{post.title}}{% endblock %}
+{% block body %}
 
 		{% if post %}
-			<h1>Delete {{posts.title}}</h1>
+			<h1>Delete {{post.title}}</h1>
 		{% endif %}
 
-		<p>
-			Are you sure you want to delete the post <strong>{{ posts.title }}</strong>?
+		 <p>
+			Are you sure you want to delete the post <strong>{{ post.title }}</strong>?
 		</p>
-		
+                {% if user.is_authenticated %}
+                     {% if ok %}		
 		<form action="." method="post">
 			
 			{% csrf_token %}
 		
 			<input type="submit" value="Delete">
 			or <a href="{% url posts_list %}">cancel</a>
-			
+                    {% else %}
+                   <p>
+			{{ user.username }} you cannot delete the post <strong>{{ post.title }}</strong>?
+                   </p>
+                   <p>返回<a href="{% url posts_list %}">列表</a></p>
 		</form>
-		
-	</body>
-</html>
+		{% endif %}
+		{% endif %}		
+{% endblock %}

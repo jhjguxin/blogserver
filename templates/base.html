@@ -18,19 +18,26 @@ Released   : 20110116
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Compiled  by Free CSS Templates</title>
+<title>{% block title %}风尘{% endblock %}</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="/static/css/style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
+<div id="Certification">
+    {% if user.is_authenticated %}
+      <h2>Welcome, {{ user.username }}. 改<a href="{% url passwordchange user_id=user.pk %}">密码</a>or<a href="/edit/logout">退出</a>.</h2>
+     {% else %}
+      <h2>Welcome, 新用户. 请 <a href="/edit/login">log in</a>or<a href="/edit/register">register</a> .</h2>
+    {% endif %}
+</div>
 <div id="header">
 	<div id="menu">
 		<ul>
-			<li class="current_page_item"><a href="#">Blog</a></li>
+			<li class="current_page_item"><a href="/">Blog</a></li>
 			<!--li><a href="#">Blog</a></li-->
 			<li><a href="#">About</a></li>
-			<li><a href="{% url feeds "latest" %}" type="application/rss+xml" rel="alternate" title="Latest Posts" >feeds</a></li>
+			<li><a href="{% url feeds "latest" %}" type="application/rss+xml" rel="alternate" title="Latest Posts" >feeds</a></li>                     
 		</ul>
 	</div>
 	<!-- end #menu -->
@@ -49,7 +56,12 @@ Released   : 20110116
 			<div id="content">
 				<div class="post">
 					<p class="date_time">{% now "l, F jS" %}</p>
-					<h2 class="title"><a href="#">风尘 欢迎你！</a></h2>
+					<h2 class="title"><a href="/">风尘 欢迎你！</a></h2>
+                                        {% if user.is_authenticated %}
+                                           <h2>亲爱的<a href="{% url u_change user_id=user.pk %}">{{ user.username }}</a>在这里你可以<a href="/edit/post_create/">发表文章！</a></h2>
+                                        {% else %}
+                                           
+                                        {% endif %}
                                        <div id="content_header">
 			               </div>
 					<div id="body">
