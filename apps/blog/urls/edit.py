@@ -26,12 +26,9 @@ urlpatterns += patterns('blogserver.apps.blog.editer_user',
 
 )
 urlpatterns += patterns('',
-    (r'^login',login,{"template_name":'blog/login.html'}),
-    (r'^logout/$', logout),
+    url(r'^login',login,{"template_name":'blog/login.html'},name='login'),
+    url(r'^logout/$', logout,{"template_name":'blog/logout.html'},name='logout'),
 
 
 )
-urlpatterns += patterns('',
 
-
-)

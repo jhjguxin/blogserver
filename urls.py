@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.views.generic.simple import direct_to_template
 from blogserver.views import *
 from django.views.static import serve
+from django.contrib.auth.views import login,logout
 admin.autodiscover()
 import os, sys
 
@@ -29,8 +30,11 @@ urlpatterns = patterns('',
     (r'^tag/', include('apps.blog.urls.tags')),
     # Comments
     (r'^comments/', include('django.contrib.comments.urls')),
+    # about
+    (r'^about/', include('apps.about.urls')),
 
 )
+
 from django.conf import settings
 if settings.DEBUG:
     urlpatterns += patterns('',

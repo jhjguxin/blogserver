@@ -28,9 +28,9 @@ Released   : 20110116
 <body>
 <div id="Certification">
     {% if user.is_authenticated %}
-      <h2>Welcome, {{ user.username }}. 改<a href="{% url passwordchange user_id=user.pk %}">密码</a>or<a href="/edit/logout">退出</a>.</h2>
+      <h2>Welcome, {{ user.username }}. 改<a href="{% url passwordchange user_id=user.pk %}">密码</a>or<a href="{% url logout %}">退出</a>.</h2>
      {% else %}
-      <h2>Welcome, 新用户. 请 <a href="/edit/login">log in</a>or<a href="/edit/register">register</a> .</h2>
+      <h2>Welcome, 新用户. 请 <a href="{% url login %}">log in</a>or<a href="/edit/register">register</a> .</h2>
     {% endif %}
 </div>
 <div id="header">
@@ -38,7 +38,7 @@ Released   : 20110116
 		<ul>
 			<li class="current_page_item"><a href="/">Blog</a></li>
 			<!--li><a href="#">Blog</a></li-->
-			<li><a href="#">About</a></li>
+			<li><a href="{% url about_html %}">About</a></li>
 			<li><a href="{% url feeds "latest" %}" type="application/rss+xml" rel="alternate" title="Latest Posts" >feeds</a></li>                     
 		</ul>
 	</div>
@@ -60,7 +60,7 @@ Released   : 20110116
 					<p class="date_time">{% now "l, F jS" %}</p>
 					<h2 class="title"><a href="/">风尘 欢迎你！</a></h2>
                                         {% if user.is_authenticated %}
-                                           <h2>亲爱的<a href="{% url u_change user_id=user.pk %}">{{ user.username }}</a>在这里你可以<a href="/edit/post_create/">发表文章！</a></h2>
+                                           <h2>亲爱的<a href="{% url u_change user_id=user.pk %}">{{ user.username }}</a>在这里你可以<a href="{% url post_index %}">发表</a>或者<a href="{% url posts_list %}">编辑</a>文章！</h2>
                                         {% else %}
                                            
                                         {% endif %}

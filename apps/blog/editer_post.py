@@ -67,20 +67,25 @@ def post(request, post_id=None):
     """Displays, creates or updates a blog posts."""
     
     post = None
+    edit=False
     if post_id:
         post = get_object_or_404(Post.objects.all(), pk=post_id)
+        edit=True
+        
 
     if request.method == 'POST':
         
         form = PostsForm(request.POST, instance=post)
-
-        if form.is_valid():
-            ct=form.cleaned_data
-            #pdb.set_trace()
-            post=Post(title=ct['title'],slug=ct['slug'],categories=ct['categories'],img=ct['img'],content=ct['content'],status=ct['status'],author=request.user,)
-            post.save()
-            posts = Post.objects.all()
-            return SerializeOrRedirect(reverse('posts_list'), { 'posts': posts })
+        if edit:
+            form.save()
+        else:
+            if form.is_valid():
+                ct=form.cleaned_data
+                #pdb.set_trace()
+                post=Post(title=ct['title'],slug=ct['slug'],categories=ct['categories'],img=ct['img'],content=ct['content'],status=ct['status'],author=request.user,)
+                post.save()
+        posts = Post.objects.all()
+        return SerializeOrRedirect(reverse('posts_list'), { 'posts': posts })
             
     else:
         
