@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 {% load pagination_tags %}
 
-{% block title %}post_list{% endblock %}
+{% block title %}文章_list{% endblock %}
 {% block body %}
+
+
+
     <div id="posts">
         {% autopaginate post_list 10 %}
         {% for object in post_list %}
