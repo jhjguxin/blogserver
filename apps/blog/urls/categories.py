@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from django_blog.blog.models import Category
+from blogserver.apps.blog.models import Category
 
 display_dict = {
     'queryset' : Category.objects.all(),

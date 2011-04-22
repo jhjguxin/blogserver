@@ -141,6 +141,7 @@ class Live(models.Manager):
 
   def get_query_set(self):
     return super(Live, self).get_query_set().filter(status__exact=Post.LIVE_STATUS)
+
 class Post(models.Model):
   "the class of Post"
   LIVE_STATUS = 1

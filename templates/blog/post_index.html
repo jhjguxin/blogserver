@@ -42,37 +42,17 @@
 				No posts yet!
 		</li>
 	    {% endfor %}
+              <div id="result"/></div>
 </ul>
 	
-	<form action="." id="postForm" method="post">
+	<form action="post_index" id="postForm" method="post">
     {% csrf_token %}
 		{{ form.as_p }}
 	  <input type="submit" value="Save">
 	</form>
   <!-- the result of the search will be rendered inside this div -->
-  <div id="result"/></div>
-	
-<script>
-  // attach a submit handler to the form
-  $("#postForm").submit(function(event) {
 
-    // stop form from submitting normally
-    event.preventDefault(); 
-        
-    // get some values from elements on the page:
-    var $form = $( this ),
-        url = $form.attr( 'action' );
-    
-    // Send the data using post and put the results in a div
-    $.post( url, $form.serialize(), function( data ) {
-	  alert(data.posts)
-          $.each(data.posts, function(i, post) {
-            console.log(i, post); 
-            $("<a>").attr("href", "/"+post.id).text(post.title).appendTo("#result").wrap("<li/>");
-          });
-      }, "json");
-    
-  });
-</script>
+	
+
 
 {% endblock %}

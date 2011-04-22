@@ -5,7 +5,7 @@
 from django.contrib import admin
 from blogserver.apps.blog.models import Comment,User,Post, Category, Tag
 
-def tag(obj):
+def tags(obj):
     return ", ".join([x.name for x in obj.tag.all()])
 
 def categories(obj):
@@ -19,7 +19,7 @@ class PostAdmin(admin.ModelAdmin):
         'slug': ('title',),
     }
     date_hierarchy = 'created_on'
-    list_display = ('title', 'status', author , 'created_on','date_published', 'date_modified', tag, categories)
+    list_display = ('title', 'status', author , 'created_on','date_published', 'date_modified', tags, categories)
     list_filter = ('status', 'tag', 'categories')
     search_fields = ('title','author','tag','categories',)
     exclude = ('author',)

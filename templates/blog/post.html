@@ -19,8 +19,8 @@
             {{ object.content|safe }}
         {% else %}
             {% with object.content|wordcount as size %}
-                {% if_greater size 150 %}
-                    {{ object.contenty|safe|truncatewords_html:150 }}
+                {% if_greater size 100 %}
+                    {{ object.contenty|safe|truncatewords_html:100 }}
                     <a href="{{ object.get_absolute_url }}"> Continue Reading... </a>
                 {% else %}
                     {{ object.content|safe }}

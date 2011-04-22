@@ -107,9 +107,9 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'django.contrib.markup',
     'blogserver.apps.blog',#我是在根目录创建好app在放在apps下面的如果提示找不到apps.blog则是因为apps目录下面没有__init__.py文件
-    'django_blog.profiles',
+    'blogserver.profiles',
     'blogserver.apps.about',
-    'blogserver.api',
+#    'blogserver.api',
     'gravatar',
     'template_utils',
     'pagination',

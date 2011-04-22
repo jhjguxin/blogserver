@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from django_blog.blog.models import Tag
+from blogserver.apps.blog.models import Tag
 
 display_dict = {
     'queryset' : Tag.objects.all(),

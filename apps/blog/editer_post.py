@@ -27,19 +27,29 @@ def test_js(request):
 """
 @ csrf_exempt
 @login_required
-def post_index(request):
-  """Lists all blog post."""
+def post_index(request, post_id=None):
+    """Displays, creates or updates a blog posts."""
     
-  if request.method == 'POST':
-    post = Post.objects.create(title=request.POST.get("title"), reviewer=request.POST.get("reviewer"), email=request.POST.get("email"),content=request.POST.get("content") )
-    post.save()
-    form = PostsForm(request.POST, instance=post)
-    #posts = Posts.objects.all()
-  else:
-    form = PostsForm(instance=None)
-  posts = Post.objects.all()
-  #pdb.set_trace()
-  return SerializeOrRender('blog/post_index.html', { 'posts': posts }, extra={ 'form': form })
+    post = None
+    posts = Post.objects.all()
+    if request.method == 'POST':
+        
+        form = PostsForm(request.POST, instance=post)
+        if form.is_valid():
+            #pdb.set_trace()
+            ct=form.cleaned_data
+            post=form.save()
+
+
+        return SerializeOrRedirect(reverse('post_index'), { 'posts': posts })
+            
+    else:
+        
+        form = PostsForm(instance=post)
+    
+#        return SerializeOrRender('blog/post_edit.html', { 'post': post }, extra={ 'form': form })
+        return SerializeOrRender('blog/post_index.html', { 'posts': posts }, extra={ 'form': form })
+
 @login_required
 def posts_list(request):
     """Lists all blog post."""
@@ -80,10 +90,9 @@ def post(request, post_id=None):
             form.save()
         else:
             if form.is_valid():
-                ct=form.cleaned_data
                 #pdb.set_trace()
-                post=Post(title=ct['title'],slug=ct['slug'],categories=ct['categories'],img=ct['img'],content=ct['content'],status=ct['status'],author=request.user,)
-                post.save()
+                ct=form.cleaned_data
+                post=form.save()
         posts = Post.objects.all()
         return SerializeOrRedirect(reverse('posts_list'), { 'posts': posts })
             
@@ -91,5 +100,5 @@ def post(request, post_id=None):
         
         form = PostsForm(instance=post)
     
-    return SerializeOrRender('blog/post_edit.html', { 'post': post }, extra={ 'form': form })
+        return SerializeOrRender('blog/post_edit.html', { 'post': post }, extra={ 'form': form })
 

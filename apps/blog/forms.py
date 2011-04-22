@@ -2,6 +2,7 @@ from django import forms
 from blogserver.apps.blog.models import Post
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm,UserChangeForm,PasswordChangeForm
+from blogserver.apps.blog.models import Comment,User,Post, Category, Tag
 """
 class CommentsForm(forms.ModelForm):
     "Creates/updates a blog post."
@@ -12,10 +13,10 @@ class CommentsForm(forms.ModelForm):
 """
 class PostsForm(forms.ModelForm):
     """Creates/updates a blog post."""
-    
+    #tag = forms.ModelMultipleChoiceField(queryset=Tag.objects.all())    
     class Meta:
         model = Post
-        fields = ('id','title','slug','status','tag','categories','img','content',)
+        fields = ('id','title','author','slug','status','tag','categories','img','content',)
 #        fields = ('id','title','author','tag','categories','content','hoter',)
 
 class RegisterForm(UserCreationForm):
