@@ -40,4 +40,5 @@ if settings.DEBUG:
     urlpatterns += patterns('',
 	    # Images, Css, etc...
 	    (r'static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': static }),
+	    (r'media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/usr/lib/pymodules/python2.6/django/contrib/admin/media' }),
     )

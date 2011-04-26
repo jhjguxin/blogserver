@@ -33,3 +33,8 @@ server {
 #sudo vim /etc/rc.local 
 #cd /home/jhjguxin/Desktop/djcode/blogserver
 #uwsgi --socket 127.0.0.1:9000 --pythonpath /home/jhjguxin/Desktop/djcode -w conf
+
+///注意
+后台css 在uwscgi里面是没有加载的需要自己加载
+在urls.py里面添加
+(r'media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/usr/local/lib/python2.6/dist-packages/django/contrib/admin/media' }),#不同的localhost 路径不一定一样
