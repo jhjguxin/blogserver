@@ -78,8 +78,8 @@ MIDDLEWARE_CLASSES = (
     "django.middleware.csrf.CsrfResponseMiddleware",
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'blogserver.pagination.middleware.PaginationMiddleware',
-#    'dynamicresponse.middleware.api.APIMiddleware',
-#    'dynamicresponse.middleware.dynamicformat.DynamicFormatMiddleware',
+    'dynamicresponse.middleware.api.APIMiddleware',
+    'dynamicresponse.middleware.dynamicformat.DynamicFormatMiddleware',
 
 )
 TEMPLATE_CONTEXT_PROCESSORS = (
