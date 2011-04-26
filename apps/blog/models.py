@@ -211,7 +211,7 @@ class Post(models.Model):
             'comments',
             'hoter']
 
-import akismet
+from blogserver.akismet import *
 from django.conf import settings
 from django.contrib.sites.models import Site 
 

@@ -1,0 +1,35 @@
+首先安装 nginx 1.0.0  然后安装 python-uwsgi 
+sudo -s
+nginx=stable # use nginx=development for latest development version
+add-apt-repository ppa:nginx/$nginx
+apt-get update 
+apt-get install nginx
+
+If you get an error about add-apt-repository not existing, you will want to install python-software-properties.
+
+For other Debian/Ubuntu based distributions, you can try the lucid variant of the PPA which is the most likely to work on older package sets.
+
+sudo -s
+nginx=stable # use nginx=development for latest development version
+echo "deb http://ppa.launchpad.net/nginx/$nginx/ubuntu lucid main" > /etc/apt/sources.list.d/nginx-$nginx-lucid.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C300EE8C
+apt-get update 
+apt-get install nginx
+apt-get install nginx uwsgi-python python-virtualenv
+然后安装 python-uwsgi 
+在/etc/nginx/nginx.conf  里面include  项目目录下的 nginx.conf
+
+server {  
+        listen       80;  
+        server_name  blogserver.com;  
+        location / {  
+                include uwsgi_params;  
+                uwsgi_pass 127.0.0.1:9000;  
+                uwsgi_param UWSGI_PYHOME /home/jhjguxin/Desktop/djcode/blogserver;  
+                uwsgi_param UWSGI_SCRIPT conf;  
+                uwsgi_param UWSGI_CHDIR /home/jhjguxin/Desktop/djcode/blogserver;  
+        }  
+    }  
+#sudo vim /etc/rc.local 
+#cd /home/jhjguxin/Desktop/djcode/blogserver
+#uwsgi --socket 127.0.0.1:9000 --pythonpath /home/jhjguxin/Desktop/djcode -w conf

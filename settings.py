@@ -77,9 +77,9 @@ MIDDLEWARE_CLASSES = (
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.middleware.csrf.CsrfResponseMiddleware",
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'pagination.middleware.PaginationMiddleware',
-    'dynamicresponse.middleware.api.APIMiddleware',
-    'dynamicresponse.middleware.dynamicformat.DynamicFormatMiddleware',
+    'blogserver.pagination.middleware.PaginationMiddleware',
+#    'dynamicresponse.middleware.api.APIMiddleware',
+#    'dynamicresponse.middleware.dynamicformat.DynamicFormatMiddleware',
 
 )
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -100,7 +100,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
-    'django.contrib.admin',
+#    'django.contrib.admin',
     'django.contrib.admindocs',
     'django.contrib.webdesign',
     'django.contrib.comments',
@@ -110,9 +110,9 @@ INSTALLED_APPS = (
     'blogserver.profiles',
     'blogserver.apps.about',
 #    'blogserver.api',
-    'gravatar',
-    'template_utils',
-    'pagination',
+    'blogserver.gravatar',
+    'blogserver.template_utils',
+    'blogserver.pagination',
 
 )
 AUTH_PROFILE_MODULE	 = 'profiles.profile'
