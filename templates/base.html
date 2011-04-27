@@ -22,6 +22,8 @@ Released   : 20110116
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="/static/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/static/3d/style.css" /> 
+<script type="text/javascript" src="/static/3d/3d.js"></script> 
 {% block extra_meta %}
 {% endblock %}
 </head>
@@ -78,13 +80,14 @@ Released   : 20110116
 				<ul>
 					<li>
 						<h2>tags</h2>
+                                                       <div id="div1">
 						        {% object_counts for blog.Tag as tags %}
                                                         {% for tag in tags %}
                                                         {% ifnotequal tag.post_set.count 0 %}
-                                <li><a href="{{ tag.get_absolute_url }}">{{ tag.name }} ({{tag.post_set.count }})</a></li>
+                                <a href="{{ tag.get_absolute_url }}">{{ tag.name }} ({{tag.post_set.count }})</a>
                                                         {% endifnotequal %}
                                                         {% endfor %}
-
+                                                        </div>
 					</li>
 					<li>
 						<h2>category</h2>
