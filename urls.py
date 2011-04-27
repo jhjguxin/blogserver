@@ -5,6 +5,8 @@ from blogserver.views import *
 from django.views.static import serve
 from django.contrib.auth.views import login,logout
 admin.autodiscover()
+from django.contrib.sitemaps import FlatPageSitemap, GenericSitemap
+from blogserver.apps.blog.models import Post
 import os, sys
 
 static = os.path.join(
@@ -42,3 +44,25 @@ if settings.DEBUG:
 	    (r'static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': static }),
 	    (r'media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/usr/lib/pymodules/python2.6/django/contrib/admin/media' }),
     )
+
+info_dict = {
+    'queryset': Post.objects.all(),
+    'date_field': 'date_published',
+}
+
+sitemaps = {
+    'flatpages': FlatPageSitemap,
+    'blog': GenericSitemap(info_dict, priority=0.6),
+}
+
+urlpatterns += patterns('',
+    # some generic view using info_dict
+    # ...
+
+    # the sitemap
+    (r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps})
+)
+urlpatterns += patterns('django.contrib.sitemaps.views',
+    (r'^sitemap\.xml$', 'index', {'sitemaps': sitemaps}),
+    (r'^sitemap-(?P<section>.+)\.xml$', 'sitemap', {'sitemaps': sitemaps}),
+)
