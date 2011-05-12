@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 {% load comments %}
 {% load gravatar %}
+<<<<<<< HEAD
 {% block keywords %}
 <meta name="keywords" 
       content="{% for tag in object.tag.all %}{{ tag.name }},{% endfor %}"/>
 {% endblock %}
+=======
+>>>>>>> 9dc827901ac1987c1dcd0cf1c6aa926230e2283b
 {% block title %}{{ object.title }}{% endblock %}
 {% block body %}
     {% include "blog/post.html" %}
