@@ -34,10 +34,8 @@ urlpatterns = patterns('',
     (r'^comments/', include('django.contrib.comments.urls')),
     # about
     (r'^about/', include('apps.about.urls')),
-<<<<<<< HEAD
+
     (r'^git/', include('apps.git.urls')),
-=======
->>>>>>> 9dc827901ac1987c1dcd0cf1c6aa926230e2283b
 
 )
 

@@ -110,10 +110,7 @@ INSTALLED_APPS = (
     'blogserver.apps.blog',#我是在根目录创建好app在放在apps下面的如果提示找不到apps.blog则是因为apps目录下面没有__init__.py文件
     'blogserver.profiles',
     'blogserver.apps.about',
-<<<<<<< HEAD
     'blogserver.apps.git',
-=======
->>>>>>> 9dc827901ac1987c1dcd0cf1c6aa926230e2283b
 #    'blogserver.api',
     'blogserver.gravatar',
     'blogserver.template_utils',
