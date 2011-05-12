@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ b_users.title }}</title>
+	</head>
+	<body>
+
+		{% if b_users %}
+			<h1>{{ b_users.title }}</h1>
+		{% else %}
+			<h1>New b_users</h1>
+		{% endif %}
+
+		<form action="." method="post">
+			
+			{% csrf_token %}
+			
+			{{ form.as_p }}
+		
+			<input type="submit" value="Save">
+			
+		</form>
+		
+	</body>
+</html>

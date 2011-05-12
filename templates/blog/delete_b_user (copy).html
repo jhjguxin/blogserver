@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Delete {{b_users.title}}</title>
+	</head>
+	<body>
+
+		{% if post %}
+			<h1>Delete {{b_users.title}}</h1>
+		{% endif %}
+
+		<p>
+			Are you sure you want to delete the b_user <strong>{{ b_users.title }}</strong>?
+		</p>
+		
+		<form action="." method="post">
+			
+			{% csrf_token %}
+		
+			<input type="submit" value="Delete">
+			or <a href="{% url list_b_users %}">cancel</a>
+			
+		</form>
+		
+	</body>
+</html>

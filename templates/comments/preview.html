@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load markup %}
+
+{% block title %}Preview your comment{% endblock %}
+
+{% block body %}
+  {% load comments %}
+  <h3>Preview:</h3>
+  <div class="comment_preview">{{ comment|markdown }}</div>
+  <div id="comment_form">
+    <h3 class="comment_header">Leave a Comment:</h3>  
+    {% with comment.content_object as object %}
+        {% include "blog/comment_form.html" %}
+    {% endwith %}
+  </div>
+{% endblock %}

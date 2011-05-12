@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Delete {{comments.title}}</title>
+	</head>
+	<body>
+
+		{% if post %}
+			<h1>Delete {{comments.title}}</h1>
+		{% endif %}
+
+		<p>
+			Are you sure you want to delete the comment <strong>{{ comments.title }}</strong>?
+		</p>
+		
+		<form action="." method="post">
+			
+			{% csrf_token %}
+		
+			<input type="submit" value="Delete">
+			or <a href="{% url comments_list %}">cancel</a>
+			
+		</form>
+		
+	</body>
+</html>

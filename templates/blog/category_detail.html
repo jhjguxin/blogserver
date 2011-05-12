@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load pagination_tags %}
+{% block title %}风尘{% endblock %}
+{% block body %}
+    <h2 class="category"> {{ object.name }} </h2>
+    {% with object.post_set.all as posts %}
+        <div id="posts">
+            {% autopaginate posts 10 %}
+            {% for object in posts %}
+                {% include "blog/post.html" %}
+            {% endfor %}
+        </div>
+        {% paginate %}
+    {% endwith %}
+{% endblock %}

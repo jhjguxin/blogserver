@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load comments %}
+{% load gravatar %}
+{% block keywords %}
+<meta name="keywords" 
+      content="{% for tag in object.tag.all %}{{ tag.name }},{% endfor %}"/>
+{% endblock %}
+{% block title %}{{ object.title }}{% endblock %}
+{% block body %}
+    {% include "blog/post.html" %}
+    <div id="comments_list">
+        {% get_comment_list for object as comment_list %}
+
+        <ul>
+            {% for comment in comment_list %}
+                <li class="comment">
+                    <span>
+                    <div class="comment_header" style="width:180px;height:200px;float:left;padding-left:10px">
+                        <div class="image">
+                            {% gravatar_for_email comment.user_email 80 %}
+                        </div>
+                        
+                        <p class="name">
+                            {% if comment.url %}
+                                <a href="{{ comment.url }}">{{ comment.name }}</a>
+                            {% else %}
+                                {{ comment.name }}
+                            {% endif %}
+                        </p>
+                        <p class="comment_date">{{ comment.submit_date|date:"n/j/y @ g:i A" }} </p>
+                    </div>
+
+
+                    <div class="comment_body" style="width:350px; height:200px;float:left;">{{ comment.comment|safe }} </div>
+                  </span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="comment_form">
+        <h3 class="comment_header">Leave a Comment: <span class="hint">Comments support <a href="http://daringfireball.net/projects/markdown/">markdown</a>.</span></h3>
+        {% get_comment_form for object as form %}
+        {% include "blog/comment_form.html" %}
+    </div>
+{% endblock %}

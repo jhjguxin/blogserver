@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Compiled 
+Description: A two-column, fixed-width design for 1024x768 screen resolutions.
+Version    : 1.0
+Released   : 20110116
+
+-->
+{% load object_counts %}
+{% load date_counts %}
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>风尘--{% block title %}{% endblock %}</title>
+{% block keywords %}
+<meta name="keywords" content="django,jhjguxin" />
+{% endblock %}
+<meta name="description" content="" />
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/static/3d/style.css" /> 
+<script type="text/javascript" src="/static/3d/3d.js"></script> 
+{% block extra_meta %}
+{% endblock %}
+</head>
+<body>
+<div id="Certification">
+    {% if user.is_authenticated %}
+      <h2>Welcome, {{ user.username }}. 改<a href="{% url passwordchange user_id=user.pk %}">密码</a>or<a href="{% url logout %}">退出</a>.</h2>
+     {% else %}
+      <h2>Welcome, 新用户. 请 <a href="{% url login %}">log in</a>or<a href="/edit/register">register</a> .</h2>
+    {% endif %}
+</div>
+<div id="header">
+	<div id="menu">
+		<ul>
+			<li class="current_page_item"><a href="/">Blog</a></li>
+			<!--li><a href="#">Blog</a></li-->
+			<li><a href="{% url about_html %}">About</a></li>
+			<li><a href="{% url feeds "latest" %}" type="application/rss+xml" rel="alternate" title="Latest Posts" >feeds</a></li>                     <li><a href="{% url git %}">My Git</a></li>
+		</ul>
+	</div>
+	<!-- end #menu -->
+	<div id="logo">
+		<h1><a href="{% url blog_post_archive_list %}">风尘</a></h1>
+		<h2>风轻拂，尘飞扬～～～</h2>
+	</div>
+	<hr />
+</div>
+<!-- end #header -->
+<!-- end #header-wrapper -->
+<!-- end #logo -->
+<div id="page">
+	<div id="page-bgtop">
+		<div id="page-bgbtm">
+			<div id="content">
+				<div class="post">
+					<p class="date_time">{% now "l, F jS" %}</p>
+					<h2 class="title"><a href="/">风尘 欢迎你！</a></h2>
+                                        {% if user.is_authenticated %}
+                                           <h2>亲爱的<a href="{% url u_change user_id=user.pk %}">{{ user.username }}</a>在这里你可以<a href="{% url post_index %}">发表</a>或者<a href="{% url posts_list %}">编辑</a>文章！</h2>
+                                        {% else %}
+                                           
+                                        {% endif %}
+                                       <div id="content_header">
+			               </div>
+					<div id="body">
+                                         {% block body %} {% endblock %}
+                                        </div>
+				</div>
+				
+				
+			</div>
+			<!-- end #content -->
+			<div id="sidebar">
+				<ul>
+					<li>
+						<h2>tags</h2>
+                                                       <div id="div1">
+						        {% object_counts for blog.Tag as tags %}
+                                                        {% for tag in tags %}
+                                                        {% ifnotequal tag.post_set.count 0 %}
+                                <a href="{{ tag.get_absolute_url }}">{{ tag.name }} ({{tag.post_set.count }})</a>
+                                                        {% endifnotequal %}
+                                                        {% endfor %}
+                                                        </div>
+					</li>
+					<li>
+						<h2>category</h2>
+						<ul>
+							{% object_counts for blog.Category as categories %}
+                                                        {% for category in categories %}
+                                                        {% ifnotequal category.post_set.count 0 %}
+                            <li><a href="{{ category.get_absolute_url }}">{{ category.name }} ({{category.post_set.count }})</a>
+                           <a href="{% url feeds "category" %}{{ category.slug }}"><img src="/static/img/layout/rss.png" alt="{{ category.name }} RSS" />
+                                        </li>
+                            {% endifnotequal %}
+                        {% endfor %}
+						</ul>
+					</li>
+					<li>
+						<h2>archives </h2>
+						<ul>
+
+							{% date_counts for blog.Post.date_published on month as dates %}
+                                                        {% for date in dates %}
+                                                   <li><a href="{% url post_month date.date.year,date.date|date:"m" %}">{{ date.date|date:"F Y" }} ({{ date.count }})</a></li>                                                        {% endfor %}
+
+						</ul>
+					</li>
+
+				</ul>
+			</div>
+			<!-- end #sidebar -->
+			<div style="clear: both;">&nbsp;</div>
+		</div>
+		<!-- end #page -->
+	</div>
+</div>
+<div id="footer-bgcontent">
+	<div id="footer">
+		<p>Copyright (c) {% now "Y" %} 风尘. All rights reserved. Design by <a href="https://github.com/jhjguxin/">jhjguxin</a>.</p><p><a href="http://www.djangoproject.com/"><img src="http://media.djangoproject.com/img/badges/djangomade124x25_grey.gif" alt="Made with Django." title="Made with Django." /></a></p>
+	</div>
+	<!-- end #footer -->
+</div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block body %}<div class="breadcrumbs"><a href="/">{% trans 'Home' %}</a></div>
+
+<p>{% trans "Thanks for spending some quality time with the Web site today." %}</p>
+
+<p><a href="/edit/login">{% trans 'Log in again' %}</a></p>
+
+{% endblock %}

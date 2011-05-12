@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Delete {{users.title}}</title>
+	</head>
+	<body>
+
+		{% if post %}
+			<h1>Delete {{users.title}}</h1>
+		{% endif %}
+
+		<p>
+			Are you sure you want to delete the user <strong>{{ users.title }}</strong>?
+		</p>
+		
+		<form action="." method="post">
+			
+			{% csrf_token %}
+		
+			<input type="submit" value="Delete">
+			or <a href="{% url users_list %}">cancel</a>
+			
+		</form>
+		
+	</body>
+</html>

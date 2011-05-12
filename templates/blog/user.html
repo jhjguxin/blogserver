@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}用户注册{% endblock %}
+
+{% block body %}
+                {% if user.is_authenticated %}
+                        
+                {% else %}
+			<h1>Register</h1>
+		{% endif %}
+                <div id="register">
+		<form action="." method="post">
+			
+			{% csrf_token %}
+			
+			{{ form.as_p }}
+		
+			<input type="submit" value="Save">
+			
+		</form>
+		</div>
+{% endblock %}
