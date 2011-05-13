@@ -4,7 +4,7 @@
 
 {% block keywords %}
 <meta name="keywords" 
-      content="{% for tag in object.tag.all %}{{ tag.name }},{% endfor %}"/>
+      content="风尘,{% for tag in object.tag.all %}{{ tag.name }},{% endfor %}"/>
 {% endblock %}
 {% block title %}{{ object.title }}{% endblock %}
 {% block body %}
