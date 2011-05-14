@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Blog user</title>
-	</head>
-	<body>
+{% extends "base.html" %}
+{% block title %}用户列表{% endblock %}
+
+{% block body %}
 
 		<h1>
 			Blog user
@@ -17,7 +15,7 @@
 				</li>
 			{% empty %}
 				<li>
-					No posts yet!
+					No user yet!
 				</li>
 		    {% endfor %}
 		</ul>
@@ -26,5 +24,4 @@
 			<a href="{% url user_create %}">Create a new user</a>
 		</p>
 		
-	</body>
-</html>
+{% endblock %}

@@ -1,23 +1,29 @@
 {% extends "base.html" %}
-{% block title %}Blog post录{% endblock %}
+{% load pagination_tags %}
+{% block title %}Blog posts{% endblock %}
 {% block body %}
 
-		<h1>
-			Blog post
-		</h1>
-		
-		<ul>
-		    {% for post in posts %}
-		        <li>
+<h1>
+	Blog posts
+</h1>
+   <div id="posts">
+     {% autopaginate posts 10 %}
+	<ul>
+       {% for post in posts %}
+
+          <li>
 					<h2><a href="{% url post post_id=post.pk %}">{{ post.title }}</a>
 					(<a href="{% url post_delete post_id=post.pk %}">delete</a>)</h2>
-				</li>
+          </li>
 			{% empty %}
-				<li>
+	  <li>
 					No posts yet!
-				</li>
-		    {% endfor %}
-		</ul>
+	  </li>
+	{% endfor %}
+       </ul>
+
+    </div>
+      {% paginate %}
 
 		<p>
 			<a href="{% url post_create %}">Create a new post</a>
