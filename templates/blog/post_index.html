@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load pagination_tags %}
 {% block title %}编辑文章{% endblock %}
 
 
@@ -32,18 +33,24 @@
 {% block body %}
 
 
-  <ul>
-	    {% for post in posts %}
-	        <li>
-				<a href="{% url post post_id=post.pk %}">{{ post.title }}</a><a href="{% url post_delete post_id=post.pk %}">delete</a>
-		</li>
-		{% empty %}
-		<li>
-				No posts yet!
-		</li>
-	    {% endfor %}
-              <div id="result"/></div>
-</ul>
+   <div id="posts">
+     {% autopaginate posts 10 %}
+	<ul>
+       {% for post in posts %}
+
+          <li>
+					<h2><a href="{% url post post_id=post.pk %}">{{ post.title }}</a>
+					(<a href="{% url post_delete post_id=post.pk %}">delete</a>)</h2>
+          </li>
+			{% empty %}
+	  <li>
+					No posts yet!
+	  </li>
+	{% endfor %}
+       </ul>
+
+    </div>
+      {% paginate %}
 	
 	<form action="post_index" id="postForm" method="post">
     {% csrf_token %}
