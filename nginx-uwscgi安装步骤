@@ -4,6 +4,10 @@ nginx=stable # use nginx=development for latest development version
 add-apt-repository ppa:nginx/$nginx
 apt-get update 
 apt-get install nginx
+--------
+官方install步骤
+http://library.linode.com/web-servers/nginx/python-uwsgi/ubuntu-10.10-maverick#sph_install-uwsgi
+------------
 
 If you get an error about add-apt-repository not existing, you will want to install python-software-properties.
 

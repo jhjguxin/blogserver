@@ -80,6 +80,9 @@ MIDDLEWARE_CLASSES = (
     'blogserver.pagination.middleware.PaginationMiddleware',
     'dynamicresponse.middleware.api.APIMiddleware',
     'dynamicresponse.middleware.dynamicformat.DynamicFormatMiddleware',
+#how to install django-dynamicresponse
+#sudo apt-get install python-pip
+#pip install django-dynamicresponse
 
 )
 TEMPLATE_CONTEXT_PROCESSORS = (
