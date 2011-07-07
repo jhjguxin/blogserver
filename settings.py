@@ -114,6 +114,7 @@ INSTALLED_APPS = (
     'blogserver.profiles',
     'blogserver.apps.about',
     'blogserver.apps.git',
+    'blogserver.apps.workblog',
 #    'blogserver.api',
     'blogserver.gravatar',
     'blogserver.template_utils',

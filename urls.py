@@ -37,6 +37,7 @@ urlpatterns = patterns('',
 
     (r'^git/', include('apps.git.urls')),
 
+    (r'^workblog/', include('apps.workblog.urls')),
 )
 
 from django.conf import settings
