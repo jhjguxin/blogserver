@@ -1,0 +1,234 @@
+目标：开始learn Creating a basic API with Django
+进度：看完了第一讲，了解了使用api的定义的类，url配置，调用api的class
+备注：
+疑问：关于api的构造可能要等到后面的章节才能提到了
+date:2011.04.08
+
+目标：完成一个编写blog格式的脚本，继续learn Creating a basic API with Django
+进度：脚本已经编写完成，了解了启动器创建,学习learn Creating a basic API with Django的Part 2a: API authentication及其相关应用和依赖
+备注：from django.utils.translation import ugettext_lazy as _
+#使用函数 ugettext() 来指定一个翻译字符串。 作为惯例，使用短别名 _ 来引入这个函数以节省键入时间.
+疑问：
+date:2011.04.09
+
+目标：rest
+进度：rest
+备注：
+疑问：
+date:2011.04.10
+
+目标：了解ubuntu11.04的一些最新信息，看了一下gnome3，继续learn Creating a basic API with Django
+进度：看了一些ubuntu11.04和gnome3的相关帖子，11.04beat1在官方上已经开始宣传了克制住了小白鼠的冲动。看完了OAuth in Django部分了解了OAuth的基本用法，Creating a basic API with Django相关的内容，开始为blog的代码编写做最后准备。
+备注：情况不允许啊，还是不当小白鼠吧，
+疑问：心里又感觉没有什么底了，感觉只有写个什么才有成就感样，但是写的时候呢又觉得看的太少。
+date:2011.04.11
+
+目标：掌握api的基本配置，认真阅读文档，完成blog的后台设计（主要是数据库部分）。
+进度：做出了一个blog站点的大体架构，数据库设计接近尾声
+备注：sudo easy_install django-piston
+疑问：api认证失败，USR表单的创建方式（继承？如何做），Post表单的targ字段设计
+date:2011.04.12
+
+目标：认真阅读文档，完成blog的后台设计（主要是数据库部分）。开始api接口的编写
+进度：blog数据库部分设计基本完成，api接口部分正在编写中
+备注：
+疑问：
+date:2011.04.13
+
+目标：写一个基于Jquery和api的动态交互
+进度：没有完成，主要是没有了解到网上所给的piston 的接口规范
+备注：
+疑问：
+date:2011.04.14
+
+目标：利用django-dynamicresponse中间件完成blog表单的基本功能
+进度：完成blog表单的基本功能
+备注：
+疑问：
+date:2011.04.15
+
+目标：完成认证相关功能
+进度：完成认证相关功能
+备注：
+疑问：
+date:2011.04.16
+
+目标：改进设计方案，重建数据库，配置后台视图
+进度：改进设计方案，重建数据库，
+备注：注意manytomany的保存
+疑问：
+date:2011.04.17
+
+目标：加载三方app，配置url，实现功能函数的配置
+进度：加载三方app，配置url，实现功能函数的配置
+备注：所谓接口 就是 指定参数 传向 模块函数
+疑问：
+date:2011.04.18
+
+目标：设计制作，blog前台templates
+进度：设计制作，blog前台templates
+备注：
+疑问：
+date:2011.04.19
+
+目标：组合各种功能组件，调试blog
+进度：组合各种功能组件，调试blog
+备注：
+疑问：
+date:2011.04.20
+
+目标：修复一些明显的bug
+进度：修复一些明显的bug
+备注：
+疑问：
+date:2011.04.21
+
+目标：对完成的blog做最后的测试和总结
+进度：对完成的blog做最后的测试和总结
+备注：注意 tag的设计 UI始终应该是设计的重点
+疑问：
+date:2011.04.22
+
+目标：开始发布blog
+进度：开始发布blog，尝试apache+python_mod nginx+uwscgi等工具发布
+备注：在加载三方app时 注意前面要加上 项目名 由于利用非profile方式扩展Django User Model重新继承的profile文件 使得python_mod 不能很好的解释
+疑问：
+date:2011.04.23
+
+目标：rest
+进度：rest
+备注：
+疑问：
+date:2011.04.24
+
+目标：发布blog
+进度：发布blog，尝试nginx+uwscgi发布
+备注：
+疑问：
+date:2011.04.25
+
+目标：成功发布blog
+进度：成功发布blog
+备注：
+疑问：
+date:2011.04.26
+
+目标：为blog增加sitemap功能,adding 3d tagcloud to blog
+进度：为blog增加sitemap功能,adding 3d tagcloud to blog
+备注：
+疑问：
+date:2011.04.27
+
+目标：了解一些slider的内容，开始安装ubuntu 11.04
+进度：了解一些slider的内容，开始安装ubuntu 11.04
+备注：
+疑问：
+date:2011.04.28
+
+目标：弄了个unity2d 的来玩
+进度：弄了个unity2d 的来玩，悲剧弄了十几个小时 unity3d的竟然跑不了
+备注：
+疑问：
+date:2011.04.29
+
+目标：给blog添加内容
+进度：给blog添加内容
+备注：感觉功能还是不错哈 嘿嘿
+疑问：
+date:2011.04.30
+
+目标：开始系统的看  可爱的python 今天看完第一章
+进度：开始系统的看  可爱的python
+备注：接触了cmd 模块 搜素文本文件关键字 重新接触了 python编程风格
+疑问：
+date:2011.05.01
+
+目标：可爱的python
+进度：看到了中文编码部分 文档结构，编写(了解了epydoc)  ini信息文件的生成
+备注：
+疑问：结束 可爱的python 的学习 因为写的 确实不咋的 还不怎么看的懂 关于模块介绍方面的书已经看过了而已有更全面的
+date:2011.05.02
+
+目标：给blog增加转播按钮，学完了可爱的python-PyCDC
+进度：给blog增加转播按钮，浏览器也是GUI，了解了很多东西，特别是Karrigell相关模块（htmltag函数化，Karrigell_QuickForm） 最后了解下 多线程的内容
+备注：SaaS(Software-as-a-Service,软件即服务) 了解了Karrigell的使用
+疑问：
+date:2011.05.03
+
+目标：开始 可爱的python-KDays "Web 应用故事"
+进度：了解了Leo 项目管理，了解Karrigell 设计（问卷）页面
+备注：
+疑问：
+date:2011.05.04
+
+目标：可爱的python-KDays "Web 应用故事"
+进度：可爱的python-KDays "Web 应用故事"
+备注：
+疑问：
+date:2011.05.05
+
+目标：开始学习pyside
+进度：学习pyside，希望能尽快了解相关应用
+备注：
+疑问：
+date:2011.05.06
+
+目标：开始为第一个pyside做相关准备
+进度：为第一个基于pyside的erp软件做准备
+备注：装了qtcreator 相关组件才连上 QSQLITE
+疑问：
+date:2011.05.07
+
+目标：rest
+进度：rest
+备注：
+疑问：
+date:2011.05.09
+
+目标：完成mktec界面设计
+进度：完成mktec界面设计，雏形已经做出
+备注：
+疑问：
+date:2011.05.09
+
+目标：完成mktec界面设计,开始编写数据库功能函数,完善trade表单设计
+进度：完成mktec界面设计,开始编写数据库功能函数
+备注：关于blog 搜索引擎收录,域名问题
+疑问：
+date:2011.05.10
+
+目标：编写mktec数据库功能函数
+进度：编写mktec数据库功能函数
+备注：
+疑问：
+date:2011.05.11
+
+目标：更新blog页面关键字，添加my git栏目，编写mktec数据库功能函数,完成erp的商品添加功能
+进度：更新blog页面关键字，编写mktec数据库功能函数,完成erp的商品添加功能
+备注：
+疑问：
+date:2011.05.12
+
+目标：完成美化mod界面
+进度：完成美化mod界面
+备注：
+疑问：
+date:2011.05.13
+
+目标：为帖子编辑列表添加分页，为用户资料修改页面添加base继承,完成erp的交易以及商品查询功能
+进度：为帖子编辑列表添加分页，为用户资料修改页面添加base继承,完成erp的交易以及商品查询功能
+备注：
+疑问：
+date:2011.05.14
+
+目标：完成erp的交易历史记录查询功能,完成ERP所有功能 v1.0 开发完毕
+进度：完成erp的交易历史记录查询功能,完成ERP所有功能 v1.0 开发完毕
+备注：
+疑问：
+date:2011.05.15
+
+目标：修复erp的交易历史记录查询功能bug
+进度：修复erp的交易历史记录查询功能bug
+备注：#由于需要返校，停用ubuntu系统，暂停开发工作，暂停日志编写，期间大概需要一个月时间
+疑问：
+date:2011.05.16
