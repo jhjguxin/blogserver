@@ -57,4 +57,4 @@ print >> sys.stderr, sys.path
     3、设置apache的httpd.conf文件：
   加入Include /home/jhjguxin/Desktop/djcode/blogserver/blogserver_django_wsgi.conf
 
-最后还要给数据库加上些权限
+最后还要给数据库加上datauser写权限

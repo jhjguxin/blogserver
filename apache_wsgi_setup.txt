@@ -58,3 +58,9 @@ print >> sys.stderr, sys.path
   加入Include /home/jhjguxin/Desktop/djcode/blogserver/blogserver_django_wsgi.conf
 
 最后还要给数据库加上datauser写权限
+规范的做法是
+sudo cp -r blogserver/ /var/www
+sudo chown www-data:ww-data -rf blogserver/
+然后 针对性的修改 http.conf  blogserver.conf conf.wsgi 里面的项目路径
+为 /var/www/blogserver
+ 
