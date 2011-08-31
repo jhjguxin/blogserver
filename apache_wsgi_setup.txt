@@ -1,0 +1,60 @@
+sudo apt-get install apache2 libapache2-mod-uwsgi
+
+  1、创建blogserver_django_wsgi.conf文件，内容如下：
+
+#ServerName www.blogserver.com
+ServerName blogserver.localhost
+LoadModule wsgi_module /usr/lib/apache2/modules/mod_wsgi.so
+
+Alias /static /home/jhjguxin/Desktop/djcode/blogserver/static
+
+<Directory /home/jhjguxin/Desktop/djcode/blogserver/static>
+ Order Deny,Allow
+ Allow from all
+</Directory>
+
+Alias /media /usr/lib/pymodules/python2.7/django/contrib/admin/media
+<Directory /usr/lib/pymodules/python2.7/django/contrib/admin/media/>
+ Order Deny,Allow
+ Allow from all
+</Directory>
+
+
+WSGIScriptAlias / /home/jhjguxin/Desktop/djcode/blogserver/conf.wsgi
+
+<Directory /home/jhjguxin/Desktop/djcode/blogserver>
+ Order Deny,Allow
+ Allow from all
+</Directory>
+
+#sudo apache2ctl -k restart
+
+
+    2、创建conf.wsgi文件，内容如下：
+#-*- coding=utf-8 -*-
+import os, sys
+import pdb
+import django.core.handlers.wsgi
+#Calculate the path based on the location of the WSGI script.
+apache_configuration= os.path.dirname(__file__)
+
+project = os.path.dirname(apache_configuration)
+
+workspace = os.path.dirname(project)
+sys.path.append(workspace)
+sys.path.append('/home/jhjguxin/Desktop/djcode',)
+sys.path.append('/home/jhjguxin/Desktop/djcode/blogserver',)
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'blogserver.settings'
+
+os.environ['PYTHON_EGG_CACHE'] = '/tmp'
+#上一句能解决Exception occurred processing WSGI script的问题
+
+
+
+application = django.core.handlers.wsgi.WSGIHandler()
+print >> sys.stderr, sys.path
+    3、设置apache的httpd.conf文件：
+  加入Include /home/jhjguxin/Desktop/djcode/blogserver/blogserver_django_wsgi.conf
+
+最后还要给数据库加上datauser写权限

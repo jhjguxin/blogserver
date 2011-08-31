@@ -1,0 +1,29 @@
+
+#ServerName www.blogserver.com
+ServerName blogserver.localhost
+LoadModule wsgi_module /usr/lib/apache2/modules/mod_wsgi.so
+
+PythonPath "['/home/jhjguxin/Desktop/djcode','/home/jhjguxin/Desktop/djcode/blogserver', '/usr/lib/pymodules/python2.7/django'] + sys.path"
+
+Alias /static /home/jhjguxin/Desktop/djcode/blogserver/static
+
+<Directory /home/jhjguxin/Desktop/djcode/blogserver/static>
+ Order Deny,Allow
+ Allow from all
+</Directory>
+
+Alias /media /usr/lib/pymodules/python2.7/django/contrib/admin/media
+<Directory /usr/lib/pymodules/python2.7/django/contrib/admin/media/>
+ Order Deny,Allow
+ Allow from all
+</Directory>
+
+
+WSGIScriptAlias / /home/jhjguxin/Desktop/djcode/blogserver/conf.wsgi
+
+<Directory /home/jhjguxin/Desktop/djcode/blogserver>
+ Order Deny,Allow
+ Allow from all
+</Directory>
+
+#sudo apache2ctl -k restart

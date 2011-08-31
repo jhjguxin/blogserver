@@ -31,7 +31,7 @@ Alias /media "/usr/lib/pymodules/python2.7/django/contrib/admin/media"
  Allow from all
 </Directory>
 Alias /static "/home/jhjguxin/Desktop/djcode/blogserver/static"
-<Location "/static/"> 
+<Location "/f_media/"> 
     SetHandler None 
 </Location> 
 

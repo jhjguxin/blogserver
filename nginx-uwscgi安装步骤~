@@ -35,7 +35,7 @@ server {
         }  
     }  
 
-#add uwsgi to system start load
+#add uwsgi to boot start
 #sudo vim /etc/rc.local 
 #cd /home/jhjguxin/Desktop/djcode/blogserver
 #uwsgi --socket 127.0.0.1:9000 --pythonpath /home/jhjguxin/Desktop/djcode -w conf
