@@ -1,4 +1,4 @@
-sudo apt-get install apache2 libapache2-mod-uwsgi
+sudo apt-get install apache2 libapache2-mod-wsgi
 
   1、创建blogserver_django_wsgi.conf文件，内容如下：
 
@@ -60,7 +60,7 @@ print >> sys.stderr, sys.path
 最后还要给数据库加上datauser写权限
 规范的做法是
 sudo cp -r blogserver/ /var/www
-sudo chown www-data:ww-data -rf blogserver/
+sudo chown www-data:www-data -rf blogserver/
 然后 针对性的修改 http.conf  blogserver.conf conf.wsgi 里面的项目路径
 为 /var/www/blogserver
  
