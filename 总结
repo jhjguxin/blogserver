@@ -112,3 +112,12 @@ date:2011.04.25
 备注：
 疑问：
 date:2011.04.26
+
+
+-------------------------------------------
+关于修复了 非profile方式扩展Django User Model重新继承的profile文件（'UserAdmin.fieldsets[5][1]['fields']' refers to field 'status' that is missing from the form.）的问题
+
+这个问题时有时无的。考虑在model中直接将2句注释掉，然后需要在admin中编辑这些field时，写一个自定义的 Admin 选项，继承自 django.contrib.auth.admin 中的 UserAdmin 。然后将原来的UserAdmin取消掉，注册自己的Admin选项：（实际上重写CustomUserChangeForm并加到CustomUserAdmin的form就不回报错了，但是自定义的字段无法显示所以再重写CustomUserAdmin的fieldsets）
+然后在app目录下的admin定义CustomUserChangeForm,CustomUserAdmin(UserAdmin)
+admin.site.unregister(User)
+admin.site.register(User, CustomUserAdmin) 

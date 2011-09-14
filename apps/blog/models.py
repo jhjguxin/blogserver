@@ -21,8 +21,8 @@ class ProfileBase(type):
       for obj_name, obj in attrs.items():  
         if isinstance(obj, models.Field): fields.append(obj_name)  
         User.add_to_class(obj_name, obj)  
-      UserAdmin.fieldsets = list(UserAdmin.fieldsets)  
-      UserAdmin.fieldsets.append((name, {'fields': fields}))  
+      #UserAdmin.fieldsets = list(UserAdmin.fieldsets)  
+      #UserAdmin.fieldsets.append((name, {'fields': fields}))  
     return super(ProfileBase, cls).__new__(cls, name, bases, attrs)  
           
 class Profile(object):  

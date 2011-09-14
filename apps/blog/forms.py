@@ -24,13 +24,13 @@ class RegisterForm(UserCreationForm):
     
     class Meta:
         model = User
-        fields = ('id','username','password1','password2','name','gender','interest','signature','email','f_name','address',            'f_zip','call','phone')
+        fields = ('id','username','password1','password2','first_name','last_name','name','gender','interest','signature','email','f_name','address',            'f_zip','call','phone')
 class U_ChangeForm(UserChangeForm):
     """updates a blog user."""
     
     class Meta:
         model = User
-        fields = ('id','username','name','gender','interest','signature','email','f_name','address','f_zip','call','phone')
+        fields = ('id','username','name','first_name','last_name','gender','interest','signature','email','f_name','address','f_zip','call','phone')
 
 class U_PasswordChangeForm(PasswordChangeForm):
     """updates a blog user."""

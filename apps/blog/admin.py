@@ -4,6 +4,10 @@
 
 from django.contrib import admin
 from blogserver.apps.blog.models import Comment,User,Post, Category, Tag
+from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.forms import UserChangeForm
+from django.utils.translation import ugettext, ugettext_lazy as _
+
 
 def tags(obj):
     return ", ".join([x.name for x in obj.tag.all()])
@@ -47,13 +51,26 @@ class TagAdmin(admin.ModelAdmin):
 #    list_display=('title','reviewer','email','content','created_on')
 #  list_filter=('hoter',)
     search_fields=('title',)
-class UserAdmin(admin.ModelAdmin):
-    list_display=('id','username','first_name','last_name','name','gender','interest','signature','phone',)
-#  list_filter=('hoter',)
-    search_fields=('username','first_name','last_name','email',)
+class CustomUserChangeForm(UserChangeForm):
+    """updates a blog user."""
+    class Meta:
+        model = User
+        fields =('id','username','password','groups','first_name','last_name','name','gender','birthday','interest','university','signature','email','f_name','address','f_zip','call','phone','last_login','date_joined','is_active','is_staff','is_superuser','user_permissions')
+
+class CustomUserAdmin(UserAdmin):
+    fieldsets = (
+  	        (None, {'fields': ('username', 'password')}),
+  	        (_('Personal info'), {'fields': ('first_name','last_name','name','gender','interest','signature','birthday','university','email','f_name','address','f_zip','call','phone')}),
+  	        (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser', 'user_permissions')}),
+  	        (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
+  	        (_('Groups'), {'fields': ('groups',)}),
+      	        )
+    form = CustomUserChangeForm
 
 #admin.site.register(Comment,CommentAdmin)
 #admin.site.register(User,UserAdmin)
+admin.site.unregister(User)
+admin.site.register(User, CustomUserAdmin) 
 admin.site.register(Post,PostAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Tag, TagAdmin)
