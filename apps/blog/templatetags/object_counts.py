@@ -1,5 +1,6 @@
 from django import template
 from django.db import models
+import pdb
 
 class ObjectCountNode(template.Node):
     def __init__(self, model, context_var):
@@ -24,6 +25,7 @@ def do_object_cout(parser, token):
     
     if len(bits) < 4:
         raise template.TemplateSyntaxError, "%r tag requires 3 argumetns" % tag_name
+    #pdb.set_trace()
     
     model_name = get_model_name(bits[2], tag_name)
     model = models.get_model(*model_name)
