@@ -161,7 +161,7 @@ class Post(models.Model):
   author = models.ForeignKey(User)
 
   tag=models.ManyToManyField(Tag,blank=True,null=True)
-  categories = models.ForeignKey(Category)
+  category = models.ForeignKey(Category)
   status = models.IntegerField(choices=statuses)        
 #  comments = models.ForeignKey(Comment,blank=True,null=True)
 
@@ -202,7 +202,7 @@ class Post(models.Model):
             'status',
             'author',
             'tag',
-            'categories',
+            'category',
             'img',
             'created_on',
             'date_published',
@@ -210,6 +210,24 @@ class Post(models.Model):
             'content',
             'comments',
             'hoter']
+#Link
+class Link(models.Model):
+  name=models.CharField(max_length=255)
+  url=models.CharField(max_length=255)
+  describe=models.TextField(max_length=255)
+  created_on = models.DateTimeField(auto_now_add=True,editable=False)
+  date_modified = models.DateTimeField(auto_now_add=True, editable=False)
+
+  def serialize_fields(self):
+    """Only these fields will be included in API responses."""
+    return [
+           'id',
+            'name',
+            'url',
+            'describe',
+            'created_on',
+            'date_modified',
+            ]
 
 from blogserver.akismet import *
 from django.conf import settings

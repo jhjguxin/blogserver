@@ -3,17 +3,19 @@
 #admin.py
 
 from django.contrib import admin
-from blogserver.apps.blog.models import Comment,User,Post, Category, Tag
+from blogserver.apps.blog.models import Comment,User,Post, Category, Tag,Link
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserChangeForm
 from django.utils.translation import ugettext, ugettext_lazy as _
+import pdb
 
 
 def tags(obj):
     return ", ".join([x.name for x in obj.tag.all()])
 
 def categories(obj):
-    return ", ".join([c.name for c in obj.categories.all()])
+    #pdb.set_trace()
+    return obj.category.name
 
 def author(obj):
     return obj.author.get_full_name()
@@ -24,8 +26,8 @@ class PostAdmin(admin.ModelAdmin):
     }
     date_hierarchy = 'created_on'
     list_display = ('title', 'status', author , 'created_on','date_published', 'date_modified', tags, categories)
-    list_filter = ('status', 'tag', 'categories')
-    search_fields = ('title','author','tag','categories',)
+    list_filter = ('status', 'tag', 'category')
+    search_fields = ('title','author','tag','category',)
     exclude = ('author',)
     
     def save_model(self, request, obj, *args, **kargs):
@@ -41,6 +43,11 @@ class TagAdmin(admin.ModelAdmin):
     prepopulated_fields = {
         'slug': ('name',),
     }
+class LinkAdmin(admin.ModelAdmin):
+    date_hierarchy = 'created_on'
+    list_display = ('name', 'url', 'describe' , 'created_on','date_modified',)
+    list_filter = ('name', 'url', 'created_on')
+    search_fields = ('name','url',)
 
 #class PostAdmin(admin.ModelAdmin):
 #    list_display=('id','title','author','tag','category','created_on','content','hoter',)
@@ -74,6 +81,7 @@ admin.site.register(User, CustomUserAdmin)
 admin.site.register(Post,PostAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Tag, TagAdmin)
+admin.site.register(Link, LinkAdmin)
 #admin.site.register(Shop,ShopAdmin)
 #admin.site.register(New,NewAdmin)
 #admin.site.register(Message,MessageAdmin)

@@ -16,7 +16,7 @@ class PostsForm(forms.ModelForm):
     #tag = forms.ModelMultipleChoiceField(queryset=Tag.objects.all())    
     class Meta:
         model = Post
-        fields = ('id','title','author','slug','status','tag','categories','img','content',)
+        fields = ('id','title','author','slug','status','tag','category','img','content',)
 #        fields = ('id','title','author','tag','categories','content','hoter',)
 
 class RegisterForm(UserCreationForm):
