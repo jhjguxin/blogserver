@@ -10,6 +10,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.comments.signals import comment_will_be_posted
 from django.contrib.comments.models import Comment
 from markdown import markdown
+import pdb
 #from markdown import markdown 可以尝试在编辑Post 后提交views里面转换
 
 class ProfileBase(type):  
@@ -108,9 +109,9 @@ CATEGORY = (
     (u'杂文', u'杂文'),
 )
 class Tag(models.Model):
-  name=models.CharField(max_length=255)
+  name=models.CharField(max_length=255,unique=True)
   slug=models.SlugField(unique=True)
-        
+
   def __unicode__(self):
     return self.name
             
@@ -169,6 +170,7 @@ class Post(models.Model):
   date_modified = models.DateTimeField(auto_now_add=True, editable=False)
   date_published = models.DateTimeField(auto_now_add=True,editable=False)
   hoter=models.IntegerField(blank=True,default=0)
+  tags_list=[]
     
   # manager
   live = Live()
@@ -177,10 +179,17 @@ class Post(models.Model):
   class Meta:
     ordering = ['-created_on']
                 
-  def save(self):
+  def save(self,*args, **kwargs):
+
     import datetime
+    #pdb.set_trace()
+
+    from blogserver.middleware import threadlocals
+    if threadlocals.get_current_user():
+        self.author = threadlocals.get_current_user()
     self.created_on = datetime.datetime.now()
-    super(Post, self).save()
+    super(Post, self).save() 
+
 
   @models.permalink
   def get_absolute_url(self):

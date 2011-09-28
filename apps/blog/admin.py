@@ -8,7 +8,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserChangeForm
 from django.utils.translation import ugettext, ugettext_lazy as _
 import pdb
-
+from blogserver.apps.blog.forms import PostsForm
 
 def tags(obj):
     return ", ".join([x.name for x in obj.tag.all()])
@@ -20,6 +20,8 @@ def categories(obj):
 def author(obj):
     return obj.author.get_full_name()
 
+def post_count(obj):
+    return obj.post_set.count()
 class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {
         'slug': ('title',),
@@ -28,11 +30,13 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'status', author , 'created_on','date_published', 'date_modified', tags, categories)
     list_filter = ('status', 'tag', 'category')
     search_fields = ('title','author','tag','category',)
-    exclude = ('author',)
-    
+    #exclude = ('author',)
+
+    form=PostsForm
     def save_model(self, request, obj, *args, **kargs):
         obj.author = request.user;
-        super(PostAdmin, self).save_model(request, obj, *args, **kargs)
+        super(PostAdmin, self).save_model(request, obj, *args, **kargs)    
+
     
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {
@@ -40,6 +44,8 @@ class CategoryAdmin(admin.ModelAdmin):
     }
 
 class TagAdmin(admin.ModelAdmin):
+    list_display = ('name', post_count)
+
     prepopulated_fields = {
         'slug': ('name',),
     }

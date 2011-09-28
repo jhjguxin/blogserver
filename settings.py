@@ -76,6 +76,7 @@ MIDDLEWARE_CLASSES = (
     "django.middleware.csrf.CsrfMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.middleware.csrf.CsrfResponseMiddleware",
+    "blogserver.middleware.threadlocals.ThreadLocals",
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'blogserver.pagination.middleware.PaginationMiddleware',
     'dynamicresponse.middleware.api.APIMiddleware',
