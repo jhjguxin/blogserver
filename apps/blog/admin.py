@@ -34,7 +34,7 @@ class PostAdmin(admin.ModelAdmin):
 
     form=PostsForm
     def save_model(self, request, obj, *args, **kargs):
-        obj.author = request.user;
+        #obj.author = request.user;
         super(PostAdmin, self).save_model(request, obj, *args, **kargs)    
 
     

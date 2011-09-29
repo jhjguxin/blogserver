@@ -170,7 +170,7 @@ class Post(models.Model):
   date_modified = models.DateTimeField(auto_now_add=True, editable=False)
   date_published = models.DateTimeField(auto_now_add=True,editable=False)
   hoter=models.IntegerField(blank=True,default=0)
-  tags_list=[]
+  #tags_list=[]
     
   # manager
   live = Live()
@@ -184,9 +184,9 @@ class Post(models.Model):
     import datetime
     #pdb.set_trace()
 
-    from blogserver.middleware import threadlocals
-    if threadlocals.get_current_user():
-        self.author = threadlocals.get_current_user()
+    #from blogserver.middleware import threadlocals
+    #if threadlocals.get_current_user():
+    #    self.author = threadlocals.get_current_user()
     self.created_on = datetime.datetime.now()
     super(Post, self).save() 
 
