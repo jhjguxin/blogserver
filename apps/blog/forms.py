@@ -33,7 +33,7 @@ class PostsForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ('id','title','slug','status','tag','category','img','content',)
+        fields = ('id','title','author','slug','status','tag','category','img','content',)
 #        fields = ('id','title','author','tag','categories','content','hoter',)
 
 
