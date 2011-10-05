@@ -101,7 +101,7 @@ div#register form input {
 	width: 1000px;
 	height: 180px;
 	margin: 0 auto;
-	background: url(/static/img/img01.gif) no-repeat left top;
+	background: url(/static/img/img01.jpg) no-repeat left top;
 }
 
 /* Menu */
@@ -472,7 +472,7 @@ div#comment_form form div {
 
 #footer-bgcontent {
 	height: 110px;
-	background: url(/static/img/img01.gif) repeat-x left top;
+	background: url(/static/img/img01.jpg) repeat-x left top;
 }
 
 #footer p {
