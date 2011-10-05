@@ -34,26 +34,26 @@ Released   : 20110116
 <body>
 <div id="Certification">
     {% if user.is_authenticated %}
-      <h2>Welcome, {{ user.username }}. 改<a href="{% url passwordchange user_id=user.pk %}">密码</a>or<a href="{% url logout %}">退出</a>.</h2>
+      <h2>Welcome, {{ user.username }}. 改<a href="{% url passwordchange user_id=user.pk %}">密码</a>or<a href="{% url logout %}"title="logout">退出</a>.</h2>
      {% else %}
-      <h2>Welcome, 新用户. 请 <a href="{% url login %}">log in</a>or<a href="/edit/register">register</a> .</h2>
+      <h2>Welcome, 新用户. 请 <a href="{% url login %}"title="log in" >log in</a>or<a href="/edit/register">register</a> .</h2>
     {% endif %}
 </div>
 <div id="header">
 	<div id="menu">
 		<ul>
-			<li class="current_page_item"><a href="/">Blog</a></li>
+			<li class="current_page_item" title="风尘"><a href="/">Blog</a></li>
 			<!--li><a href="#">Blog</a></li-->
-			<li><a href="{% url about_html %}">About</a></li>
-			<li><a href="{% url feeds "latest" %}"type="application/rss+xml" rel="alternate" title="Latest Posts" >feeds</a></li>                     <li><a href="{% url git %}">My Git</a></li>
-                        <li><a href="{% url workblog %}">Work blog</a></li>
+			<li><a href="{% url about_html %}" title="jhjguxin's personal info">About</a></li>
+			<li><a href="{% url feeds "latest" %}"type="application/rss+xml" rel="alternate" title="Latest Posts" >feeds</a></li>                     <li><a href="{% url git %}" title="jhjguxin's github">My Git</a></li>
+                        <li><a href="{% url workblog %}" title="jhjguxin's work log">Work blog</a></li>
                         
 		</ul>
 
 	</div>
 	<!-- end #menu -->
 	<div id="logo">
-		<h1><a href="{% url blog_post_archive_list %}">风尘</a></h1>
+		<h1><a href="{% url blog_post_archive_list %}" title="blog_post_archive_list">风尘</a></h1>
 		<h2>风轻拂，尘飞扬～～～</h2>
 	</div>
 	
@@ -84,10 +84,10 @@ Released   : 20110116
 </div>
                                    <!–Google站内搜索结束-->
 					<p class="date_time">{% now "l, F jS" %}</p>
-					<h2 class="title"><a href="/">风尘 欢迎你！</a></h2>
+					<h2 class="title"><a href="/" title="blog_post_archive_list">风尘 欢迎你！</a></h2>
 
                                         {% if user.is_authenticated %}
-                                           <h2>亲爱的<a href="{% url u_change user_id=user.pk %}">{{ user.username }}</a>在这里你可以<a href="{% url post_index %}">发表</a>或者<a href="{% url posts_list %}">编辑</a>文章！</h2>
+                                           <h2>亲爱的<a href="{% url u_change user_id=user.pk %}" title="点击显示{{ user.username }}的个人信息">{{ user.username }}</a>在这里你可以<a href="{% url post_index %}">发表</a>或者<a href="{% url posts_list %}">编辑</a>文章！</h2>
                                         {% else %}
                                            
                                         {% endif %}
@@ -148,7 +148,7 @@ Released   : 20110116
 
 							{% object_counts for blog.Link as links %}
                                                         {% for l in links %}
-                                                   <li><a href="{{ l.url }}">{{ l.name }}</a></li> 
+                                                   <li><a href="{{ l.url }}" title="{{ l.describe }}">{{ l.name }}</a></li> 
                                                         {% endfor %}
 
 						</ul>
