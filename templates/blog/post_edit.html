@@ -22,7 +22,7 @@ tinyMCE.init({
 		theme_advanced_resizing : true,
 
 		// Example content CSS (should be your site CSS)
-		content_css : "css/content.css",
+		//content_css : "css/content.css",
 
 		// Drop lists for link/image/media/template dialogs
 		template_external_list_url : "lists/template_list.js",
@@ -61,7 +61,7 @@ tinyMCE.init({
 		{% else %}
 			<h1>Edit post</h1>
 		{% endif %}
-                <div id="register">
+                <div id="post_edit">
 		<form action="." method="post">
 			
 			{% csrf_token %}

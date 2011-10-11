@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load comments %}
 {% load gravatar %}
-
+{% load pagination_tags %}
 {% block keywords %}
 <meta name="keywords" 
       content="风尘,{% for tag in object.tag.all %}{{ tag.name }},{% endfor %}"/>
@@ -9,14 +9,19 @@
 {% block title %}{{ object.title }}{% endblock %}
 {% block body %}
     {% include "blog/post.html" %}
-    <div id="comments_list">
-        {% get_comment_list for object as comment_list %}
+     <div class="author_signature">
+           作者签名：<br>
+         <p>{{object.author.signature}}</p>
+    </div>
+    <div class="comments_list">
 
+        {% get_comment_list for object as comment_list %}
+        {% autopaginate comment_list 5 %}
         <ul>
             {% for comment in comment_list %}
                 <li class="comment">
                     <span>
-                    <div class="comment_header" style="width:180px;height:200px;float:left;padding-left:10px">
+                    <div class="comment_header" >
                         <div class="image">
                             {% gravatar_for_email comment.user_email 80 %}
                         </div>
@@ -28,19 +33,24 @@
                                 {{ comment.name }}
                             {% endif %}
                         </p>
-                        <p class="comment_date">{{ comment.submit_date|date:"n/j/y @ g:i A" }} </p>
+                        <p class="date">{{ comment.submit_date|date:"n/j/y @ g:i A" }} </p>
                     </div>
 
 
-                    <div class="comment_body" style="width:350px; height:200px;float:left;">{{ comment.comment|safe }} </div>
+                    <div class="comment_body" >{{ comment.comment|safe }} </div>
                   </span>
                 </li>
             {% endfor %}
         </ul>
+      {% paginate %}
     </div>
     <div id="comment_form">
-        <h3 class="comment_header">Leave a Comment: <span class="hint">Comments support <a href="http://daringfireball.net/projects/markdown/">markdown</a>.</span></h3>
+        <div class="comment_form_header">
+        Leave a Comment:Comments support <a href="http://daringfireball.net/projects/markdown/">markdown</a>.
+        </div>
+        <div class="comment_form_body">
         {% get_comment_form for object as form %}
         {% include "blog/comment_form.html" %}
+        </div>
     </div>
 {% endblock %}
