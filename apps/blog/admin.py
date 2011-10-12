@@ -28,13 +28,13 @@ class PostAdmin(admin.ModelAdmin):
     }
     date_hierarchy = 'created_on'
     list_display = ('title', 'status', author , 'created_on','date_published', 'date_modified', tags, categories)
-    list_filter = ('status', 'tag', 'category')
-    search_fields = ('title','author','tag','category',)
-    #exclude = ('author',)
+    list_filter = ('status', 'tag', 'category',"author")
+    search_fields = ('title','author__username','category__name','^author__first_name', '^author__last_name',)
+    exclude = ('author',)
 
     form=PostsForm
     def save_model(self, request, obj, *args, **kargs):
-        #obj.author = request.user;
+        obj.author = request.user;
         super(PostAdmin, self).save_model(request, obj, *args, **kargs)    
 
     
