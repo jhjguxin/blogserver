@@ -4,7 +4,8 @@
 <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 <div class="post">
     <div class="header">
-        <g:plusone size="medium"><h2><a class="title" href="{{ object.get_absolute_url }}" title="{{ object.title }}">{{ object.title }}</a></h2></g:plusone>
+        <!--g:plusone size="medium"><h2><a class="title" href="{{ object.get_absolute_url }}" title="{{ object.title }}">{{ object.title }}</a></h2></g:plusone-->
+        <h2><a class="title" href="{{ object.get_absolute_url }}" title="{{ object.title }}">{{ object.title }}</a></h2>
         <p class="date_published"> 
 			{{ object.date_published|date:"l, F jS, Y @ g:i A" }} \\
 			{% if object.author.get_profile %}
