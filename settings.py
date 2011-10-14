@@ -117,6 +117,7 @@ INSTALLED_APPS = (
     'blogserver.apps.git',
     'blogserver.apps.workblog',
 #    'blogserver.api',
+#    'blogserver.google_analytics',已经固化在base/html里面了  也可以在 base.html中导入analytics标签即可
     'blogserver.gravatar',
     'blogserver.template_utils',
     'blogserver.pagination',
@@ -126,5 +127,5 @@ AUTH_PROFILE_MODULE	 = 'profiles.profile'
 #FIXTURE_DIRS = (
 #    os.path.join(BASE_DIR, 'fixtures'),
 #)
-
+ANALYTICS_ID = "UA-25901353-1"
 #APPEND_SLASH = False#如果喂False 则不会判断dir后面是否有'/'
