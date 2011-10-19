@@ -22,7 +22,10 @@ def author(obj):
 
 def post_count(obj):
     return obj.post_set.count()
+
 class PostAdmin(admin.ModelAdmin):
+
+
     prepopulated_fields = {
         'slug': ('title',),
     }
@@ -31,8 +34,32 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ('status', 'tag', 'category',"author")
     search_fields = ('title','author__username','category__name','^author__first_name', '^author__last_name',)
     exclude = ('author',)
+    actions = ['make_published']
 
     form=PostsForm
+
+    def queryset(self, request):
+        """
+        Returns a QuerySet of all model instances that can be edited by the
+        admin site. This is used by changelist_view.
+        """
+        #pdb.set_trace()
+        #super(PostAdmin, self)
+        #qs = self.model.live
+        qs = super(PostAdmin, self).queryset(request).model.objects.all()
+        # TODO: this should be handled by some parameter to the ChangeList.
+        ordering = super(PostAdmin, self).ordering
+        if ordering:
+            qs = qs.order_by(*ordering)
+        return qs
+
+    def make_published(self, request, queryset):
+        rows_updated = queryset.update(status=1)
+        if rows_updated == 1:
+            message_bit = "1 story was"
+        else:
+            message_bit = "%s stories were" % rows_updated
+        self.message_user(request, "%s successfully marked as published." % message_bit)
     def save_model(self, request, obj, *args, **kargs):
         obj.author = request.user;
         super(PostAdmin, self).save_model(request, obj, *args, **kargs)    

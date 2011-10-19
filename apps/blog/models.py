@@ -10,6 +10,8 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.comments.signals import comment_will_be_posted
 from django.contrib.comments.models import Comment
 from markdown import markdown
+from blogserver.apps.blog.managers import LivePostManager
+
 import pdb
 #from markdown import markdown 可以尝试在编辑Post 后提交views里面转换
 
@@ -121,27 +123,27 @@ class Tag(models.Model):
   @models.permalink
   def get_absolute_url(self):
     return('tag_detail', (), {'slug': self.slug })
-class Category(models.Model):
-        name=models.CharField(max_length=255)
-        slug=models.SlugField(unique=True)
-        
-        def __unicode__(self):
-                return self.name
-            
-        class Meta:
-            ordering = ['name']
-            verbose_name_plural = "categories"
-        
-        @models.permalink
-        def get_absolute_url(self):
-                return('category_detail', (), {'slug': self.slug })
-class Live(models.Manager):
-  """
-  Customer Manager that is aware of Post statues
-  """
+  #objects = LivePostManager()
 
-  def get_query_set(self):
-    return super(Live, self).get_query_set().filter(status__exact=Post.LIVE_STATUS)
+class Category(models.Model):
+  name=models.CharField(max_length=255)
+  slug=models.SlugField(unique=True)
+      
+  def __unicode__(self):
+    return self.name
+            
+  class Meta:
+    ordering = ['name']
+    verbose_name_plural = "categories"
+        
+  @models.permalink
+  def get_absolute_url(self):
+    return('category_detail', (), {'slug': self.slug })
+
+  #objects = LivePostManager()
+
+
+
 
 class Post(models.Model):
   "the class of Post"
@@ -149,35 +151,48 @@ class Post(models.Model):
   DRAFT_STATUS = 2
   HIDDEN_STATUS = 3
         
-  statuses = (
+  STATUS_CHOICE = (
                 (LIVE_STATUS, 'Live'),
                 (DRAFT_STATUS, 'Draft'),
                 (HIDDEN_STATUS,'Hidden'),
              )
-  title = models.CharField(max_length=255,unique=True)
-  slug = models.SlugField(unique_for_date="created_on",unique=True)
-  img=models.ImageField('Image',upload_to='upload-img',blank=True,null=True)
-  content = models.TextField(blank=False)
-
+  title = models.CharField(max_length=255,unique=True,help_text=_('Title of the post.'))
+  slug = models.SlugField(unique_for_date="created_on",unique=True,help_text=_('Short title used in the URLs.'))
   author = models.ForeignKey(User)
-
-  tag=models.ManyToManyField(Tag,blank=True,null=True)
+  status = models.IntegerField(_('status'),choices=STATUS_CHOICE,help_text=_('The status of this news.'))  
   category = models.ForeignKey(Category)
-  status = models.IntegerField(choices=statuses)        
+
+  img=models.ImageField('Image',upload_to='upload-img',blank=True,null=True)
+  tag=models.ManyToManyField(Tag,blank=True,null=True,help_text=_('Tags for the post.'))
+  content = models.TextField(blank=False)
+  hoter=models.IntegerField(blank=True,default=0)
 #  comments = models.ForeignKey(Comment,blank=True,null=True)
 
   created_on = models.DateTimeField(auto_now_add=True,editable=False)
   date_modified = models.DateTimeField(auto_now_add=True, editable=False)
   date_published = models.DateTimeField(auto_now_add=True,editable=False)
-  hoter=models.IntegerField(blank=True,default=0)
+
   #tags_list=[]
     
   # manager
-  live = Live()
+
+  #live = LivePostManager()
+  live=LivePostManager()
   objects = models.Manager()
+  default_manager = models.Manager()
 
   class Meta:
     ordering = ['-created_on']
+
+
+def clean(self):
+  from django.core.exceptions import ValidationError
+  # Don't allow draft entries to have a pub_date.
+  if self.status != 1 and self.pub_date is not None:
+    raise ValidationError('Draft or Hidden entries may not have a publication date.')
+    # Set the pub_date for published items if it hasn't been set already.
+  if self.status == 1 and self.pub_date is None:
+    self.pub_date = datetime.datetime.now()
                 
   def save(self,*args, **kwargs):
 
