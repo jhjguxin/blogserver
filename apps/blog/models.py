@@ -123,7 +123,7 @@ class Tag(models.Model):
   @models.permalink
   def get_absolute_url(self):
     return('tag_detail', (), {'slug': self.slug })
-  #objects = LivePostManager()
+
 
 class Category(models.Model):
   name=models.CharField(max_length=255)
@@ -139,8 +139,6 @@ class Category(models.Model):
   @models.permalink
   def get_absolute_url(self):
     return('category_detail', (), {'slug': self.slug })
-
-  #objects = LivePostManager()
 
 
 
@@ -179,20 +177,12 @@ class Post(models.Model):
   #live = LivePostManager()
   live=LivePostManager()
   objects = models.Manager()
-  default_manager = models.Manager()
+
 
   class Meta:
     ordering = ['-created_on']
 
 
-def clean(self):
-  from django.core.exceptions import ValidationError
-  # Don't allow draft entries to have a pub_date.
-  if self.status != 1 and self.pub_date is not None:
-    raise ValidationError('Draft or Hidden entries may not have a publication date.')
-    # Set the pub_date for published items if it hasn't been set already.
-  if self.status == 1 and self.pub_date is None:
-    self.pub_date = datetime.datetime.now()
                 
   def save(self,*args, **kwargs):
 
