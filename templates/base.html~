@@ -140,7 +140,7 @@ Released   : 20110116
                                                         {% for category in categories %}
                                                         {% ifnotequal category.post_set.count 0 %}
                             <li><a href="{{ category.get_absolute_url }}">{{ category.name }} ({{category.post_set.count }})</a>
-                           <a href="{% url feeds "category" %}{{ category.slug }}"><img src="/static/img/layout/rss.png" alt="{{ category.name }} RSS" /></a>
+                           <a href="{% url feeds "category" %}{{ category.slug }}"><img src="/static/img/layout/rss.png" alt="{{ category.name }} RSS" />
                                         </li>
                             {% endifnotequal %}
                         {% endfor %}
