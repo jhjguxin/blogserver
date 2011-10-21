@@ -1,13 +1,11 @@
 {% extends "base.html" %}
-{% load pagination_tags %}
 {% block title %}编辑文章{% endblock %}
 
 
 {% block extra_meta %}
 <script type="text/javascript" src="/static/js/tiny_mce/tiny_mce.js"></script>
-<script src="http://code.jquery.com/jquery-1.5.js"></script>
 <script type="text/javascript">
-     tinyMCE.init({
+tinyMCE.init({
 		// General options
 		mode : "textareas",
 		theme : "advanced",
@@ -50,43 +48,28 @@
 		}
 	});
 </script>
-</script>
 
 
 {% endblock %}
 
 
 
-{% block body %}
+	{% block body %}
 
-
-   <div id="posts">
-     {% autopaginate posts 10 %}
-	<ul>
-       {% for post in posts %}
-
-          <li>
-					<h3><a href="{% url post post_id=post.pk %}">{{ post.title }}</a>
-					(<a href="{% url post_delete post_id=post.pk %}">delete</a>)</h3>
-          </li>
-			{% empty %}
-	  <li>
-					No posts yet!
-	  </li>
-	{% endfor %}
-       </ul>
-
-    </div>
-      {% paginate %}
-	
-	<form action="post_index" id="postForm" method="post">
-    {% csrf_token %}
-		{{ form.as_p }}
-	  <input type="submit" value="Save">
-	</form>
-  <!-- the result of the search will be rendered inside this div -->
-
-	
-
-
+		{% if posts %}
+			<h1>{{ posts.title }}</h1>
+		{% else %}
+			<h1>Edit post</h1>
+		{% endif %}
+                <div id="post_edit">
+		<form action="." method="post">
+			
+			{% csrf_token %}
+			
+			{{ form.as_p }}
+		
+			<input type="submit" value="Save">
+			
+		</form>
+		</div>
 {% endblock %}

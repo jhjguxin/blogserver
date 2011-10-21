@@ -66,8 +66,8 @@
        {% for post in posts %}
 
           <li>
-					<h3><a href="{% url post post_id=post.pk %}">{{ post.title }}</a>
-					(<a href="{% url post_delete post_id=post.pk %}">delete</a>)</h3>
+					<h2><a href="{% url post post_id=post.pk %}">{{ post.title }}</a>
+					(<a href="{% url post_delete post_id=post.pk %}">delete</a>)</h2>
           </li>
 			{% empty %}
 	  <li>

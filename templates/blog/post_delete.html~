@@ -3,7 +3,7 @@
 {% block body %}
 
 		{% if post %}
-			<h2>Delete {{post.title}}</h2>
+			<h1>Delete {{post.title}}</h1>
 		{% endif %}
 
 		 <p>

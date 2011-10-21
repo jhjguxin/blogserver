@@ -3,9 +3,9 @@
 
 {% block body %}
 
-		<h2>
+		<h1>
 			Blog user
-		</h2>
+		</h1>
 		
 		<ul>
 		    {% for user in users %}

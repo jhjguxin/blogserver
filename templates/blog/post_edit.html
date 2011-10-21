@@ -57,9 +57,9 @@ tinyMCE.init({
 	{% block body %}
 
 		{% if posts %}
-			<h1>{{ posts.title }}</h1>
+			<h2>{{ posts.title }}</h2>
 		{% else %}
-			<h1>Edit post</h1>
+			<h2>Edit post</h2>
 		{% endif %}
                 <div id="post_edit">
 		<form action="." method="post">

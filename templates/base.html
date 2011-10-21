@@ -18,6 +18,7 @@ Released   : 20110116
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="/static/js/theme.js"></script>
 <title>风尘--{% block title %}{% endblock %}</title>
 
 {% block keywords %}
@@ -26,9 +27,9 @@ Released   : 20110116
 
 <meta name="description" content="the 风尘. design by jhjguxin" />
 <meta name="google-site-verification" content="blPpwhLaVTvJDaC3HPXAZUY5ta5DeUVSl2jqfl-ICrQ" />
-<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="screen" />
-<link rel="stylesheet" type="text/css" href="/static/3d/style.css" /> 
-<script type="text/javascript" src="/static/3d/3d.js"></script> 
+<!--link href="/static/css/timeless.css" rel="stylesheet" type="text/css" media="screen" /-->
+<link rel="stylesheet" type="text/css" href="/static/3d/style.css" />
+ 
 {% block extra_meta %}
 {% endblock %}
 <!--Google Analytics-->
@@ -47,14 +48,15 @@ Released   : 20110116
 </script>
 </head>
 <body>
+<div id="header">
 <div id="Certification">
     {% if user.is_authenticated %}
-      <h2>Welcome, {{ user.username }}. 改<a href="{% url passwordchange user_id=user.pk %}">密码</a>or<a href="{% url logout %}"title="logout">退出</a>.</h2>
+      <p>Welcome, {{ user.username }}. 改<a href="{% url passwordchange user_id=user.pk %}">密码</a>or<a href="{% url logout %}"title="logout">退出</a>.</p>
      {% else %}
-      <h2>Welcome, 新用户. 请 <a href="{% url login %}"title="log in" >log in</a>or<a href="/edit/register">register</a> .</h2>
+      <p>Welcome, 新用户. 请 <a href="{% url login %}"title="log in" >log in</a>or<a href="/edit/register">register</a> .</p>
     {% endif %}
+
 </div>
-<div id="header">
 	<div id="menu">
 		<ul>
 			<li class="current_page_item" title="风尘"><a href="/">Blog</a></li>
@@ -69,7 +71,7 @@ Released   : 20110116
 	<!-- end #menu -->
 	<div id="logo">
 		<h1><a href="{% url blog_post_archive_list %}" title="blog_post_archive_list">风尘</a></h1>
-		<h2>风轻拂，尘飞扬～～～</h2>
+		<p>风轻拂，尘飞扬～～～</p>
 	</div>
 	
 
@@ -86,23 +88,12 @@ Released   : 20110116
 			<div id="content">
 				<div class="post">
 
-                                   <!-Google站内搜索开始>
-<div id="searchbox" >
-    <form action="http://www.google.com/search" method="get" target="_blank" >
-        
-        <div class="content" style="float:right">
-            <input type="text" class="textfield" style="color:#888;" name="as_q" size="20" value='输入关键字搜索本站' onblur="if(this.value == '')this.value='输入关键字搜索本站'" onfocus="if(this.value == '输入关键字搜索本站')this.value = ''"  />
-            <input name="as_sitesearch" value="jhjguxin.hwcrazy.com" type="hidden">
-        <input type="submit" class="button" value="Google Search"/>
-        </div>
-    </form>
-</div>
-                                   <!–Google站内搜索结束-->
+                                   
 					<p class="date_time">{% now "l, F jS" %}</p>
 					<h2 class="title"><a href="/" title="blog_post_archive_list">风尘 欢迎你！</a></h2>
 
                                         {% if user.is_authenticated %}
-                                           <h2>亲爱的<a href="{% url u_change user_id=user.pk %}" title="点击显示{{ user.username }}的个人信息">{{ user.username }}</a>在这里你可以<a href="{% url post_index %}">发表</a>或者<a href="{% url posts_list %}">编辑</a>文章！</h2>
+                                           <p>亲爱的<a href="{% url u_change user_id=user.pk %}" title="点击显示{{ user.username }}的个人信息">{{ user.username }}</a>在这里你可以<a href="{% url post_index %}">发表</a>或者<a href="{% url posts_list %}">编辑</a>文章！</p>
                                         {% else %}
                                            
                                         {% endif %}
@@ -122,6 +113,21 @@ Released   : 20110116
 			<!-- end #content -->
 			<div id="sidebar">
 				<ul>
+                                  <li>
+					                                   <!-Google站内搜索开始>
+<h2>Search</h2>
+<div id="search" >
+    <form class="form" action="http://www.google.com/search" method="get" target="_blank" >
+        
+        <div class="content" >
+            <input type="text" id="search-text"  value='输入关键字搜索本站' onblur="if(this.value == '')this.value='输入关键字搜索本站'" onfocus="if(this.value == '输入关键字搜索本站')this.value = ''"  />
+            <input name="as_sitesearch" value="jhjguxin.hwcrazy.com" type="hidden">
+        
+        </div>
+    </form>
+</div>
+                                   <!–Google站内搜索结束-->
+				</li>
 					<li>
 						<h2>tags</h2>
                                                        <div id="div1">
