@@ -98,14 +98,15 @@ Released   : 20110116
 		    <!--Google站内搜索开始-->
                         <h2>Search</h2>
                         <div id="search" >
-                            <form class="form" action="http://www.google.com/search" method="get" target="_blank" >
-                                <div class="content" >
-                                    <input type="text" id="search-text"  value='输入关键字搜索本站' onblur="if(this.value == '')this.value='输入关键字搜索本站'" onfocus="if(this.value == '输入关键字搜索本站')this.value = ''"  />
-                                    <input name="as_sitesearch" value="jhjguxin.hwcrazy.com" type="hidden">
+    <form action="http://www.google.com/search" method="get" target="_blank" >
         
-                                </div>
-                            </form>
-                        </div>
+        <div class="content" style="float:right">
+            <input type="text" class="textfield" style="color:#888;" name="as_q" size="20" value='输入关键字搜索本站' onblur="if(this.value == '')this.value='输入关键字搜索本站'" onfocus="if(this.value == '输入关键字搜索本站')this.value = ''"  />
+            <input name="as_sitesearch" value="jhjguxin.hwcrazy.com" type="hidden"/>
+        <input class="button" value="submit" type="hidden"/>
+        </div>
+    </form>
+</div>
                     <!--Google站内搜索结束-->
                 </li>
                 <li>
@@ -147,7 +148,7 @@ Released   : 20110116
                         <ul>
                             {% object_counts for blog.Link as links %}
                                 {% for l in links %}
-                                    <li><a href="{{ l.url }}" title="{{ l.describe }}">{{ l.name }}</a></li> 
+                                    <li><a href="{{ l.url }}" title="{{ l.describe }}" target=_blank>{{ l.name }}</a></li> 
                                 {% endfor %}
 
                         </ul>
