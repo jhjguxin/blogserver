@@ -8,7 +8,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 body {
 	margin: 0px;
 	padding: 0;
-	background: #19233E url(/static/img/timeless/img01.jpg) no-repeat left top;
+	background: #19233E url(/static/img/compiled/img01.jpg) no-repeat left top;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	color: #72809F;
@@ -83,25 +83,26 @@ hr { display: none; }
 
 }
 /* register*/
-
-div#register form label {
-	width: 100px;
-	padding: 5px 0px 5px 0px;
-	float: left;
+#register p {
+	display: block;
+        float:left;
+        padding: 5px 0px 0px 0px;
+        width:560px;
 }
-div#register form input {
-
-	margin: 5px 0px 5px 0px;
+#submit_register {
+	display: block;
+        float:left;
+        padding: 5px 0px 0px 0px;
+        width:650px;
 
 }
-
 /* Header */
 
 #header {
 	width: 1000px;
 	height: 180px;
 	margin: 0 auto;
-	background: url(/static/img/timeless/img01.jpg) no-repeat left top;
+	background: url(/static/img/compiled/img01.jpg) no-repeat left top;
 }
 
 /* Menu */
@@ -306,7 +307,7 @@ div#register form input {
 	height: 18px;
 	margin: 0px 0px 4px 0px; 
 	padding: 6px 10px 5px 10px;
-	background: #1E3F7F ;
+	background: #4169E1 ;
 	text-decoration: none;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
@@ -342,12 +343,12 @@ div#register form input {
 	color: #FFFFFF;
 }
 .post .comments_list {
-
+        width:560px;
 }
 
 .post .comment_header {
 	display: block;
-        width:150px;
+        width:160px;
         height:145px;
         float:left;
 	padding: 0px 0px 0px 0px;
@@ -361,10 +362,10 @@ div#register form input {
 
 .post .comment_body {
 	display: block;
-        width:380px;
+        width:450px;
         height:145px;
         float:left;
-	padding: 0px 0px 0px 20px;
+	padding: 0px 0px 0px 0px;
 	text-decoration: none;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
@@ -419,8 +420,16 @@ div#register form input {
 	display: block;
         float:left;
         padding: 5px 0px 0px 0px;
-        width:400px;
+        width:560px;
 }
+#submit_register {
+	display: block;
+        float:left;
+        padding: 5px 0px 0px 0px;
+        width:680px;
+
+}
+
 /* Sidebar */
 
 #sidebar {
@@ -559,7 +568,7 @@ div#register form input {
 
 #footer-bgcontent {
 	height: 110px;
-	background: url(/static/img/timeless/img01.jpg) repeat-x left top;
+	background: url(/static/img/compiled/img01.jpg) repeat-x left top;
 }
 
 #footer p {

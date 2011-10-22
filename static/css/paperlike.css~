@@ -26,7 +26,7 @@ h1 {
 }
 
 h2 {
-	font-size: 2.8em;
+	font-size: 1.8em;
 }
 
 h3 {
@@ -312,15 +312,16 @@ a:hover {
 	
 }
 .post .comments_list {
-
+        width:560px;
 }
 
 .post .comment_header {
 	display: block;
-        width:150px;
+        width:160px;
         height:145px;
         float:left;
 	padding: 0px 0px 0px 0px;
+	border: 1px solid #5F817E;
 	text-decoration: none;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
@@ -331,10 +332,10 @@ a:hover {
 
 .post .comment_body {
 	display: block;
-        width:380px;
+        width:500px;
         height:145px;
         float:left;
-	padding: 0px 0px 0px 20px;
+	padding: 0px 0px 0px 0px;
 	text-decoration: none;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
@@ -389,8 +390,16 @@ a:hover {
 	display: block;
         float:left;
         padding: 5px 0px 0px 0px;
-        width:560px;
+        width:6000px;
 }
+#submit_register {
+	display: block;
+        float:left;
+        padding: 5px 0px 0px 0px;
+        width:700px;
+
+}
+
 /* Sidebar */
 
 #sidebar {
@@ -512,7 +521,7 @@ a:hover {
 
 #about {
 	width: 540px;
-	padding: 30px;
+	padding: 30px;560
 	background: #EBEBEB;
 	border-bottom: 4px solid #1CB543;
 	color: #3C3D3F;

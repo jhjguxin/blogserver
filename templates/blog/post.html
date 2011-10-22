@@ -1,12 +1,11 @@
 {% load comments %}
 {% load comparison %}
 {% get_comment_count for object as comment_count %}
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<!--script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script-->
 <div class="post">
     <div class="header">
-        <!--g:plusone size="medium"><h2><a class="title" href="{{ object.get_absolute_url }}" title="{{ object.title }}">{{ object.title }}</a></h2></g:plusone-->
         <h2><a class="title" href="{{ object.get_absolute_url }}" title="{{ object.title }}">{{ object.title }}</a></h2>
-        <p class="date_published"> 
+        <p class="meta"> 
 			{{ object.date_published|date:"l, F jS, Y @ g:i A" }} \\
 			{% if object.author.get_profile %}
        	 		<a href="{{ object.author.get_profile.get_absolute_url }}">{{ object.author.get_full_name }}</a>
@@ -57,9 +56,9 @@
 
 
 		</p>
-        <p class="comment_count"><a href="{{ object.get_absolute_url }}#comments_list">评论（{{ comment_count }}）次，点击查看评论</a></p>
+        <p class="links"><a href="{{ object.get_absolute_url }}#comments_list">评论（{{ comment_count }}）次，点击查看评论</a></p>
     </div>
-    <div class="post_body">
+    <div class="entry">
         {% if post_display %}
             {{ object.content|safe }}
         {% else %}

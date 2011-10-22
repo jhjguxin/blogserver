@@ -26,7 +26,7 @@ h1 {
 }
 
 h2 {
-	font-size: 2.4em;
+	font-size: 1.8em;
 }
 
 h3 {
@@ -306,12 +306,13 @@ img.aligncenter {
 	
 }
 .post .comments_list {
+        width:560px;
 
 }
 
 .post .comment_header {
 	display: block;
-        width:150px;
+        width:160px;
         height:145px;
         float:left;
 	padding: 0px 0px 0px 0px;
@@ -325,10 +326,10 @@ img.aligncenter {
 
 .post .comment_body {
 	display: block;
-        width:380px;
+        width:500px;
         height:145px;
         float:left;
-	padding: 0px 0px 0px 20px;
+	padding: 0px 0px 0px 0px;
 	text-decoration: none;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
@@ -374,7 +375,7 @@ img.aligncenter {
 	display: block;
         float:left;
         padding: 5px 0px 0px 0px;
-        width:560px;
+
 
 }
 
@@ -385,6 +386,14 @@ img.aligncenter {
         padding: 5px 0px 0px 0px;
         width:560px;
 }
+#submit_register {
+	display: block;
+        float:left;
+        padding: 5px 0px 0px 0px;
+        width:680px;
+
+}
+
 /* Sidebar */
 
 #sidebar {

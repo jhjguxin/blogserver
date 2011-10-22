@@ -8,14 +8,11 @@
 			<h1>Register</h1>
 		{% endif %}
                 <div id="register">
-		<form action="." method="post">
-			
-			{% csrf_token %}
-			
-			{{ form.as_p }}
+		    <form action="." method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
 		
-			<input type="submit" value="Save">
-			
-		</form>
+                        <input id="submit_registers" type="submit" value="Save">
+                    </form>
 		</div>
 {% endblock %}

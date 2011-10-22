@@ -1,6 +1,6 @@
 
 #tagclone {position:relative; width:180px; height:200px; margin: 20px auto 0; }
-#tagclone a {position:absolute; top:0px; left:0px; font-family: Microsoft YaHei; color:#4169E1; 
+#tagclone a {position:absolute; top:0px; left:0px; font-family: Microsoft YaHei; color:#fff; 
 font-weight:bold; text-decoration:none; padding: 3px 6px; }
 #tagclone a:hover {border: 1px solid #eee; background: #000; }
 #tagclone .silver {color:silver;}

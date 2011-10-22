@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}用户注册{% endblock %}
+
+{% block body %}
+
+{% endblock %}
