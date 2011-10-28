@@ -13,7 +13,7 @@
 
           <li>
 					<p>----<a href="{{ post.get_absolute_url }}" title="{{ post.title }}">{{ post.title }}</a>
-					(---<a href="{% url post post_id=post.pk %}" title="edit the post '{{ post.title }}'">edit</a></h3>---<a class="title" href="{{ post.get_absolute_url }}" title="view the post '{{ post.title }}'">view</a>---<a href="{% url post_delete post_id=post.pk %}"title="delete the post '{{ post.title }}'">delete</a>)</p>
+					(---<a href="{% url post post_id=post.pk %}" title="edit the post '{{ post.title }}'">edit</a>---<a class="title" href="{{ post.get_absolute_url }}" title="view the post '{{ post.title }}'">view</a>---<a href="{% url post_delete post_id=post.pk %}"title="delete the post '{{ post.title }}'">delete</a>)</p>
           </li>
 			{% empty %}
 	  <li>
