@@ -6,14 +6,14 @@
 <h1>
 	Blog posts
 </h1>
-   <div id="post_edit_list">
+   <div id="posts">
      {% autopaginate posts 10 %}
 	<ul>
        {% for post in posts %}
 
           <li>
-					<h3><a href="{% url post post_id=post.pk %}">{{ post.title }}</a>
-					(<a href="{% url post_delete post_id=post.pk %}">delete</a>)</h3>
+					<p><a href="{{ post.get_absolute_url }}" title="{{ post.title }}">{{ post.title }}</a>
+					(---<a href="{% url post post_id=post.pk %}" title="edit the post '{{ post.title }}'">edit</a></h3>---<a class="title" href="{{ post.get_absolute_url }}" title="view the post '{{ post.title }}'">view</a>---<a href="{% url post_delete post_id=post.pk %}"title="delete the post '{{ post.title }}'">delete</a>)</p>
           </li>
 			{% empty %}
 	  <li>
@@ -24,9 +24,5 @@
 
     </div>
       {% paginate %}
-
-		<p>
-			<a href="{% url post_create %}">Create a new post</a>
-		</p>
-		
+			
 {% endblock %}

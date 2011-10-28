@@ -5,10 +5,10 @@
 <script type="text/javascript" src="/static/js/tiny_mce/tiny_mce.js"></script>
 <!-- Sytanx Highlighter -->
 <link type="text/css" rel="stylesheet" href="/static/css/syntax_highlighter/SyntaxHighlighter.css"></link>
-<script type="text/javascript" src="/static/js/syntax_highlighter/shCore.js"></script>
-<script type="text/javascript" src="/static/js/syntax_highlighter/shBrushCss.js"></script>
 <script type="text/javascript" src="/static/js/syntax_highlighter/shBrushCpp.js"></script>
 <script type="text/javascript" src="/static/js/syntax_highlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="/static/js/syntax_highlighter/shCore.js"></script>
+<script type="text/javascript" src="/static/js/syntax_highlighter/shBrushCss.js"></script>
 <script type="text/javascript" src="/static/js/syntax_highlighter/shBrushDelphi.js"></script>
 <script type="text/javascript" src="/static/js/syntax_highlighter/shBrushJava.js"></script>
 <script type="text/javascript" src="/static/js/syntax_highlighter/shBrushJScript.js"></script>

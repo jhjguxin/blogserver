@@ -19,6 +19,23 @@ Released   : 20110116
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <script type="text/javascript" src="/static/js/theme.js"></script>
+    <!-- Sytanx Highlighter -->
+<link type="text/css" rel="stylesheet" href="/static/css/syntax_highlighter/SyntaxHighlighter.css"></link>
+<script type="text/javascript" src="/static/js/syntax_highlighter/shCore.js"></script>
+<script type="text/javascript" src="/static/js/syntax_highlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="/static/js/syntax_highlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="/static/js/syntax_highlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="/static/js/syntax_highlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="/static/js/syntax_highlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="/static/js/syntax_highlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="/static/js/syntax_highlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="/static/js/syntax_highlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="/static/js/syntax_highlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="/static/js/syntax_highlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="/static/js/syntax_highlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="/static/js/syntax_highlighter/shBrushXml.js"></script>
+
+<script src="http://code.jquery.com/jquery-1.5.js"></script>
 <title>风尘--{% block title %}{% endblock %}</title>
 
 {% block keywords %}
@@ -32,6 +49,7 @@ Released   : 20110116
 <script type="text/javascript" src="/static/3d/3d.js"></script> 
 {% block extra_meta %}
 {% endblock %}
+
 <!--Google Analytics-->
 <script type="text/javascript">
 
@@ -163,11 +181,22 @@ Released   : 20110116
 <div id="footer-bgcontent">
     <div id="footer">
         <p>
-            Copyright (c) {% now "Y" %} 风尘. All rights reserved. Design by <a href="https://github.com/jhjguxin/">jhjguxin</a>.</p><p><a href="http://www.djangoproject.com/"><img src="http://media.djangoproject.com/img/badges/djangomade124x25_grey.gif" alt="Made with Django." title="Made with Django." /></a>
-            <a href="http://indexed.webmasterhome.cn/?domain=jhjguxin.hwcrazy.com" target="_blank"><img src="http://images.webmasterhome.cn/images/indexed_cn.gif" width="80" height="25" border="0" align="absmiddle" alt="收录查询"></a>
+            Copyright (c) {% now "Y" %} 风尘. All rights reserved. Design by <a href="https://github.com/jhjguxin/">jhjguxin</a>.</p>
+        <p><a href="http://www.djangoproject.com/"><img src="http://media.djangoproject.com/img/badges/djangomade124x25_grey.gif" alt="Made with Django." title="Made with Django." /></a>
+            <a href="http://indexed.webmasterhome.cn/?domain=jhjguxin.hwcrazy.com" target="_blank"><img src="http://images.webmasterhome.cn/images/indexed_cn.gif" align="absmiddle" alt="收录查询">
+<!--Baidu Analytics-->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fcac4616ccf6e25ee8bdac366c6474950' type='text/javascript'%3E%3C/script%3E"));
+</script></a>
         </p>
     </div>
     <!-- end #footer -->
 </div>
+<!--SyntaxHighlighter-do-HighlightAll-->
+    <script type="text/javascript">
+        dp.SyntaxHighlighter.ClipboardSwf = '/static/js/syntax_highlighter/clipboard.swf';
+        dp.SyntaxHighlighter.HighlightAll('code');
+    </script>
 </body>
 </html>

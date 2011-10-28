@@ -362,7 +362,7 @@ hr { display: none; }
 
 .post .comment_body {
 	display: block;
-        width:450px;
+        width:400px;
         height:145px;
         float:left;
 	padding: 0px 0px 0px 0px;
