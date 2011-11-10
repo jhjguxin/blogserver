@@ -480,14 +480,19 @@ date:Thu.2011.10.13
 疑问：
 date:Fri.2011.10.14
 
+
 目标：看看ruby语法基础,测试MobileRaptor (New UI),rewite the log editer add select mod in blogediter.sh
 进度：看看ruby语法基础,测试MobileRaptor (New UI),rewite the log editer add select mod in blogediter.sh
+提交bug：
+# [sms]send or save one sms,after send or save button is clicked but phone is lose		the pc will keep importing in long time (more than one minute)
 备注：
 疑问：
 date:Mon.2011.10.17
 
 目标：看看ruby语法基础,测试MobileRaptor (New UI),blog 又出问题咯真纠结啊
 进度：看看ruby语法基础,测试MobileRaptor (New UI),blog 又出问题咯真纠结啊
+提交bug：
+# [sms] save one sms from software		弹出一个莫名的警示框
 备注：
 疑问：
 date:Tue.2011.10.18
@@ -498,26 +503,35 @@ date:Tue.2011.10.18
 疑问：
 date:Wed.2011.10.19
 
-目标：看看ruby语法基础,测试MobileRaptor (New UI),修复draft显示错误,add some help info to Post...
-进度：看看ruby语法基础,测试MobileRaptor (New UI),修复draft显示错误,add some help info to Post...
+目标：看看ruby语法基础,测试MobileRaptor (New UI),修复draft显示错误,add some help info to Post...,waiting for the MobileRaptor’s new version pushed.
+进度：看看ruby语法基础,测试MobileRaptor (New UI),修复draft显示错误,add some help info to Post... waiting for the MobileRaptor’s new version pushed.
+
 备注：
 疑问：
 date:Thu.2011.10.20
 
 目标：看看ruby语法基础,check MobileRaptor (New UI)'s bug list,which depengd on the new version,给blog添加两套主题
 进度：看看ruby语法基础,check MobileRaptor (New UI)'s bug list,which depengd on the new version,给blog添加两套主题
+close bug: 3536 3445 3448 3449 3551 3645 3646 3647 3657 3683 3692
+提交bug：
+#按星期重复 多选的话 flyer 手机还是不支持的
 备注：又是周五
 疑问：
 date:Fri.2011.10.21
 
 目标：看看ruby语法基础,测试MobileRaptor (New UI)
 进度：看看ruby语法基础,测试MobileRaptor (New UI)
+提交bug：
+	# export one which have many letter in it bookmark to IE or Chrome  the IE and Chrome could not Identified this bookmark if it have too many words in it,so could not export successfully.and it appear in old veirsion (mobile rabptor)
 备注：
 疑问：头疼的事请还真不少呢...
 date:Mon.2011.10.24
 
 目标：看看ruby语法基础,测试MobileRaptor (New UI)
 进度：看看ruby语法基础,测试MobileRaptor (New UI)
+提交bug：
+# save(export) one or more than one contact to  *.fds file and load it            从指定文件读取失败
+# export sms to an xml which do not have any sms in every folders          能够保持成功，没有出现异常，但是如果接着导入刚刚保存的文件，第一次正常没有任何提示也没有sms产生，接着在导入xml文件不管是一般的xml(有 "the maximum of the Inbox foler is 0.Part of Text Message will not be save sucessfully.Are you sure that you want to continue?"的情况出现)，还是继续导入这个空的xml文件都会导入很长时间 
 备注：
 疑问：
 date:Tue.2011.10.25
@@ -530,6 +544,11 @@ date:Wed.2011.10.26
 
 目标：看看ruby语法基础,check MobileRaptor (New UI)'s bug list,which depengd on the new version
 进度：看看ruby语法基础,check MobileRaptor (New UI)'s bug list,which depengd on the new version
+check Bug lists: 3448, 3547, 3558, 3626, 3627, 3628, 3632, 3640, 3660, 3684, 3688, 3716, 3717
+not bug: 3630, 3631, 3694.
+Reopen bug: 3558 3640 3660 
+close bug: 3547 3448 3626 3627 3628 3632 3684 3622 3716 3717 3688
+提交bug：
 备注：
 疑问：
 date:Thu.2011.10.27
@@ -539,3 +558,60 @@ date:Thu.2011.10.27
 备注：又是周五
 疑问：
 date:Fri.2011.10.28
+
+目标：开始学习rails，并做一个demo，熟悉HTC PC Suite
+进度：开始学习rails，并做一个demo，熟悉HTC PC Suite，安装HTC PC Suite，并阅读SPEC-HTC Sync Suite 1.1 (Generic-HTC)，尝试一般操作
+备注：
+疑问：
+date:Mon.2011.10.31
+
+目标：翻译并学习Getting Started with Rails，并做一个demo，熟悉HTC PC Suite
+进度：翻译并学习Getting Started with Rails，并做一个demo，熟悉HTC PC Suite
+备注：
+疑问：
+date:Tue.2011.11.01
+
+目标：翻译并学习Getting Started with Rails，并做一个demo，熟悉HTC PC Suite,watch the movie "the Life in a day"
+进度：翻译并学习Getting Started with Rails，并做一个demo，熟悉HTC PC Suite,watch the movie "the Life in a day"
+	提交：
+	Wifi sync 在phone端同步不成功的问题。
+备注：
+疑问：
+date:Wed.2011.11.02
+
+目标：翻译并学习Getting Started with Rails，并做一个demo，熟悉HTC PC Suite,翻译bundler相关的文档
+进度：翻译并学习Getting Started with Rails，并做一个demo，熟悉HTC PC Suite,翻译bundler相关的文档
+备注：
+疑问：
+date:Thu.2011.11.03
+
+
+目标：翻译并学习Getting Started with Rails，并做一个demo，熟悉HTC PC Suite,尽量在虚拟机上安装rails3
+进度：翻译并学习Getting Started with Rails，并做一个demo，熟悉HTC PC Suite,尽量在虚拟机上安装rails3
+备注：又是周五
+疑问：
+date:Fri.2011.11.04
+
+目标：翻译并学习Getting Started with Rails，并做一个demo，test FDMediaPlayer
+进度：翻译并学习Getting Started with Rails，并做一个demo，test FDMediaPlayer
+备注：
+疑问：
+date:Mon.2011.11.07
+
+目标：翻译并学习Getting Started with Rails，并做一个demo，test FDMediaPlayer,change post share button
+进度：翻译并学习Getting Started with Rails，并做一个demo，test FDMediaPlayer,change post share button
+备注：
+疑问：
+date:Tue.2011.11.08
+
+目标：翻译并学习Getting Started with Rails，并做一个demo，test FDMediaPlayer
+进度：翻译并学习Getting Started with Rails，并做一个demo，test FDMediaPlayer
+备注：今天Getting Started with Rails应该就翻译学习完了，然后在看看是停下来扩展一下功能把现有的django blog用rails重写一下，还是接着学习下一个文档。
+疑问：
+date:Wed.2011.11.09
+
+目标：翻译并学习Migrations，并做一个demo，test FDMediaPlayer
+进度：翻译并学习Migrations，并做一个demo，test FDMediaPlayer
+备注：仔细考虑了一下，虽然现在有不少想法，但是对于很多style都不懂，所以还是继续接着往下看吧。
+疑问：
+date:Thu.2011.11.10
