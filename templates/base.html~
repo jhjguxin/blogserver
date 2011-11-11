@@ -184,7 +184,7 @@ Released   : 20110116
         <p>
             Copyright (c) {% now "Y" %} 风尘. All rights reserved. Design by <a href="https://github.com/jhjguxin/">jhjguxin</a>.</p>
         <p>
-           <a href=" http://bbs.hwcrazy.com/" title="本站空间支持：HelloWorld论坛 ">HelloWorld论坛<img src=" http://bbs.hwcrazy.com/media/favicon.ico" width="30" height="15" title="本站空间支持：HelloWorld论坛 " alt="HelloWorld论坛"/></a>
+           <a href=" http://bbs.hwcrazy.com/" title="本站空间支持：HelloWorld论坛 "><img src=" http://bbs.hwcrazy.com/media/favicon.ico" width="30" height="15" title="本站空间支持：HelloWorld论坛 " alt="HelloWorld论坛"/>HelloWorld论坛</a>
             <a href="http://www.djangoproject.com/"><img src="http://media.djangoproject.com/img/badges/djangomade124x25_grey.gif" alt="Made with Django." title="Made with Django." width="80" height="15"/></a>
             
             <a href="http://indexed.webmasterhome.cn/?domain=jhjguxin.hwcrazy.com" target="_blank"><img src="http://images.webmasterhome.cn/images/indexed_cn.gif" align="absmiddle" alt="收录查询" width="80" height="15"></a>
