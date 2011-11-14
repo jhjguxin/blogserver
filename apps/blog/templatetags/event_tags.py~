@@ -78,8 +78,15 @@ class EventCalendar(HTMLCalendar):
                 cssclass += ' today'
             if day in self.events:
                 cssclass += ' filled'
-                href="/%d/%d/%d/"%(self.year,self.month,day)
-                return self.day_cell(cssclass, '<span class="dayNumber" title="%d"><a href=%s >%d</a></span>' % (day,href,day))
+                if self.month<10:
+                    href="/%d/0%d/"%(self.year,self.month)
+                else:
+                    href="/%d/%d/"%(self.year,self.month)
+                if day <10:
+                    href=+"%d/"% day
+                else:
+                    href="/%d/%d/%d/"%(self.year,self.month,day)
+                return self.day_cell(cssclass, '<span class="dayNumber" title="click to view post"><a href=%s >%d</a></span>' % (href,day))
             return self.day_cell(cssclass, '<span class="dayNumberNoEvents">%d</span>' % (day))
         return self.day_cell('noday', '&nbsp;')
 
