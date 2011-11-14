@@ -476,10 +476,6 @@ img.aligncenter {
 	text-align: center;
 }
 
-#calendar #next {
-	text-align: right;
-}
-
 #calendar td.today {
 	background: #24130F;
 }
@@ -488,6 +484,11 @@ img.aligncenter {
     font-size: 18px !important;
     font-weight: bold;
 }
+
+#calendar #next {
+	text-align: right;
+}
+
 /* Footer */
 
 #footer {

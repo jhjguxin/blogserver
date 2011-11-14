@@ -499,7 +499,6 @@ hr { display: none; }
 /* Calendar */
 
 #calendar {
-        float:center;
 }
 
 #calendar caption {
@@ -512,7 +511,7 @@ hr { display: none; }
 	width: 100%;
 	text-align: center;
 	border-collapse: collapse;
-	border-top: 1px solid #24130F;
+	border-bottom: 1px solid #24130F;
 	border-bottom: 1px solid #24130F;
 	border-left: 1px solid #24130F;
 	border-right: 1px solid #24130F;
@@ -525,13 +524,7 @@ hr { display: none; }
 	border-left: 1px solid #24130F;
 	background: #24130F;
 }
-#calendar table tr td {
-    width: 10%;
-    border: 1px solid #555;
-    vertical-align: top;
-    height: 20px;
-    padding: 2px;
-}
+
 #calendar tbody td {
 	padding: 5px 0;
 	text-align: center;
@@ -548,7 +541,7 @@ hr { display: none; }
 
 #calendar tfoot #next {
 	border-top: 1px solid #24130F;
-	text-align: center;
+	text-align: right;
 }
 
 #calendar tfoot #prev {
@@ -564,7 +557,7 @@ hr { display: none; }
     font-weight: bold;
 }
 
-#calendar td.filled {
+#calendar td.today {
 	background: #24130F;
 }
 

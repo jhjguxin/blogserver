@@ -501,55 +501,20 @@ hr { display: none; }
 #calendar {
 }
 
-#calendar caption {
-	text-align: center;
-	padding-bottom: 5px;
-	font-weight: bold;
+#calendar_wrap {
+	padding: 20px;
 }
 
-#calendar table  {
+#calendar table {
 	width: 100%;
-	text-align: center;
-	border-collapse: collapse;
-	border-bottom: 1px solid #24130F;
-	border-bottom: 1px solid #24130F;
-	border-left: 1px solid #24130F;
-	border-right: 1px solid #24130F;
-}
-
-#calendar thead tr th {
-	padding: 5px 0;
-	text-align: center;
-	border-top: 1px solid #24130F;
-	border-left: 1px solid #24130F;
-	background: #24130F;
 }
 
 #calendar tbody td {
-	padding: 5px 0;
 	text-align: center;
-	border-top: 1px solid #24130F;
-	border-left: 1px solid #24130F;
-	border-bottom: 1px solid #24130F;
 }
 
-#calendar tfoot td {
-	padding: 5px;
-	border-left: 1px solid #24130F;
-	border-bottom: 1px solid #24130F;
-}
-
-#calendar tfoot #next {
-	border-top: 1px solid #24130F;
-	text-align: right;
-}
-
-#calendar tfoot #prev {
-	border-top: 1px solid #24130F;
-}
-
-#calendar .pad {
-	border-bottom: 1px solid #24130F;
+#calendar td.today {
+	background: #24130F;
 }
 
 #calendar .dayNumber {
@@ -557,8 +522,8 @@ hr { display: none; }
     font-weight: bold;
 }
 
-#calendar td.today {
-	background: #24130F;
+#calendar #next {
+	text-align: right;
 }
 
 
