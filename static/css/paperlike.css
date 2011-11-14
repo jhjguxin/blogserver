@@ -492,7 +492,7 @@ a:hover {
 	text-align: center;
 }
 
-#calendar td.filled {
+#calendar td.today {
 	background: #24130F;
 }
 

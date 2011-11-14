@@ -557,7 +557,7 @@ hr { display: none; }
     font-weight: bold;
 }
 
-#calendar td.filled {
+#calendar td.today {
 	background: #24130F;
 }
 

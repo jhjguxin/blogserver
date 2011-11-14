@@ -480,7 +480,7 @@ img.aligncenter {
 	text-align: right;
 }
 
-#calendar td.filled {
+#calendar td.today {
 	background: #24130F;
 }
 
