@@ -131,14 +131,14 @@ img.aligncenter {
 
 #search {
 	float: right;
-	width: 200px;
-	height: 25px;
-
+	width: 280px;
+	height: 40px;
+	padding: 0px 0px 0px 0px;
 }
 
 #search form {
 	margin: 0;
-	padding: 0px 0 0 5px;
+	padding: 10px 0 0 10px;
 }
 
 #search fieldset {
@@ -150,20 +150,22 @@ img.aligncenter {
 #search-text {
 	width: 220px;
 	height: 20px;
-	margin-left: 5px;
-	padding: 1px 5px 6px 5px;
+	margin-right: 10px;
+	padding: 6px 5px 6px 5px;
 	border: none;
+	background: #FFFFFF;
 	text-transform: lowercase;
 	font: normal 12px Arial, Helvetica, sans-serif;
-
-	background: #FFFFFF;
-
-
-	color: #000;
+	color: #B9ADAA;
 }
 
 #search-submit {
-	display: none;
+	width: 45px;
+	height: 26px;
+	border: none;
+	background: none;
+	text-indent: -9999px;
+	color: #FFFFFF;
 }
 
 /* Menu */
@@ -210,7 +212,7 @@ img.aligncenter {
 /* Page */
 
 #page {
-	width: 960px;
+	width: 1050px;
 	margin: 0 auto;
 	padding: 0;
 	border-top: 1px solid #D0D0D0;
@@ -398,7 +400,7 @@ img.aligncenter {
 
 #sidebar {
 	float: right;
-	width: 200px;
+	width: 300px;
 
 }
 

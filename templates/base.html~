@@ -14,7 +14,6 @@ Released   : 20110116
 {% load date_counts %}
 
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -129,6 +128,12 @@ Released   : 20110116
                     <!--Google站内搜索结束-->
                 </li>
                 <li>
+
+                        <h2>calendar</h2>
+
+                        <iframe src="/calendar" frameborder="0" width="100%" height="200" scrolling="auto" ><a href=”/calendar”>你的浏览器不支持iframe页面嵌套，请点击这里访问页面内容。</a></iframe>
+                </li>
+                <li>
                         <h2>tags</h2>
                         <div id="tagclone">
                                 {% object_counts for blog.Tag as tags %}
@@ -167,7 +172,7 @@ Released   : 20110116
                         <ul>
                             {% object_counts for blog.Link as links %}
                                 {% for l in links %}
-                                    <li><a href="{{ l.url }}" title="{{ l.describe }}" target=_blank>{{ l.name }}</a></li> 
+                                    <li><a href="{{ l.url }}" title="{{ l.describe }}" target="_blank">{{ l.name }}</a></li> 
                                 {% endfor %}
 
                         </ul>
@@ -182,10 +187,10 @@ Released   : 20110116
 <div id="footer-bgcontent">
     <div id="footer">
         <p>
-            Copyright (c) {% now "Y" %} 风尘. All rights reserved. Design by <a href="https://github.com/jhjguxin/">jhjguxin</a>.</p>
+            Copyright (c) {% now "Y" %} 风尘. All rights reserved. Design by <a href="https://github.com/jhjguxin/" target="_blank">jhjguxin</a>.</p>
         <p>
-           <a href=" http://bbs.hwcrazy.com/" title="本站空间支持：HelloWorld论坛 "><img src=" http://bbs.hwcrazy.com/media/favicon.ico" width="30" height="15" title="本站空间支持：HelloWorld论坛 " alt="HelloWorld论坛"/>HelloWorld论坛</a>
-            <a href="http://www.djangoproject.com/"><img src="http://media.djangoproject.com/img/badges/djangomade124x25_grey.gif" alt="Made with Django." title="Made with Django." width="80" height="15"/></a>
+           <a href=" http://bbs.hwcrazy.com/" title="本站空间支持：HelloWorld论坛 " target="_blank"><img src=" http://bbs.hwcrazy.com/media/favicon.ico" width="30" height="15" title="本站空间支持：HelloWorld论坛 " alt="HelloWorld论坛"/>HelloWorld论坛</a>
+            <a href="http://www.djangoproject.com/" target="_blank"><img src="http://media.djangoproject.com/img/badges/djangomade124x25_grey.gif" alt="Made with Django." title="Made with Django." width="80" height="15"/></a>
             
             <a href="http://indexed.webmasterhome.cn/?domain=jhjguxin.hwcrazy.com" target="_blank"><img src="http://images.webmasterhome.cn/images/indexed_cn.gif" align="absmiddle" alt="收录查询" width="80" height="15"></a>
 <!--Baidu Analytics-->

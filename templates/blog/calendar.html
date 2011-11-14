@@ -1,0 +1,50 @@
+<style type="text/css">
+/* Calendar */
+
+#calendar table {
+    width: 100%;
+}
+
+#calendar table tr th {
+    text-align: center;
+    font-size: 16px;
+    background-color: #316497;
+    color: #99ccff;
+}
+
+#calendar table tr td {
+    width: 10%;
+    border: 1px solid #555;
+    vertical-align: top;
+    height: 20px;
+    padding: 2px;
+}
+
+#calendar td.noday {
+    
+}
+
+#calendar td.filled {
+    background-color: #99ccff;
+}
+
+#calendar td.today {
+    border: 4px solid #316497;
+}
+
+#calendar .dayNumber {
+    font-size: 16px !important;
+    font-weight: bold;
+}
+
+#calendar a {
+    font-size: 10px;
+}
+
+}
+</style>
+{% load event_tags %}
+
+<div id="calendar">
+{% event_calendar year month events_list %}
+</div>

@@ -72,7 +72,7 @@ def calendar(request, year, month, series_id=None):
                                                         'year_before_this': my_year_before_this,
                                                         'year_after_this': my_year_after_this,
     }, context_instance=RequestContext(request))
-def post_calendar(request):
+def event_calendar(request):
   #pdb.set_trace()
 #  return render_to_response("base.html",)
   lToday = datetime.now()

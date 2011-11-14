@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 #    (r'^admin/(.*)', admin.site.root),
     (r'^base$', base_page),
-    (r'^calendar$', post_calendar),
+    (r'^calendar$', calendar),
 #    (r'^static/css/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/home/jhjguxin/Desktop/djcode/blogserver/static/css'}),
 #    (r'^static/img/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/home/jhjguxin/Desktop/djcode/blogserver/static/img'}),
 
