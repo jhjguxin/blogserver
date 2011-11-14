@@ -502,19 +502,22 @@ hr { display: none; }
 }
 
 #calendar caption {
+	text-align: center;
 	padding-bottom: 5px;
 	font-weight: bold;
 }
 
-#calendar table {
+#calendar table  {
 	width: 100%;
+	text-align: center;
 	border-collapse: collapse;
+	border-bottom: 1px solid #24130F;
 	border-bottom: 1px solid #24130F;
 	border-left: 1px solid #24130F;
 	border-right: 1px solid #24130F;
 }
 
-#calendar thead th {
+#calendar thead tr th {
 	padding: 5px 0;
 	text-align: center;
 	border-top: 1px solid #24130F;
@@ -549,7 +552,12 @@ hr { display: none; }
 	border-bottom: 1px solid #24130F;
 }
 
-#calendar #today {
+#calendar .dayNumber {
+    font-size: 18px !important;
+    font-weight: bold;
+}
+
+#calendar td.filled {
 	background: #24130F;
 }
 

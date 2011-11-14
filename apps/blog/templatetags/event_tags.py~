@@ -4,11 +4,11 @@
 
 from calendar import HTMLCalendar
 from django import template
-from datetime import date
+from datetime import *
 from itertools import groupby
 import pdb
 from django.utils.html import conditional_escape as esc
-
+from blogserver.apps.blog.models import Post
 register = template.Library()
 
 def do_event_calendar(parser, token):
@@ -17,10 +17,12 @@ def do_event_calendar(parser, token):
     """
 
     try:
-        tag_name, year, month, event_list = token.split_contents()
+        #tag_name, year, month, event_list = token.split_contents()
+        tag_name= token.split_contents()
     except ValueError:
         raise template.TemplateSyntaxError, "%r tag requires three arguments" % token.contents.split()[0]
-    return EventCalendarNode(year, month, event_list)
+    #return EventCalendarNode(year, month, event_list)
+    return EventCalendarNode()
 
 
 class EventCalendarNode(template.Node):
@@ -28,20 +30,29 @@ class EventCalendarNode(template.Node):
     Process a particular node in the template. Fail silently.
     """
 
-    def __init__(self, year, month, event_list):
+    def __init__(self,):
         try:
-            self.year = template.Variable(year)
-            self.month = template.Variable(month)
-            self.event_list = template.Variable(event_list)
+            lToday = datetime.now()
+            #self.year = template.Variable(year)
+            #self.month = template.Variable(month)
+            self.year = lToday.year
+            self.month = lToday.month
+            my_events = Post.objects.filter(date_published__year=self.year, date_published__month=self.month)
+            #self.event_list = template.Variable(event_list)
+            self.event_list = my_events
         except ValueError:
             raise template.TemplateSyntaxError
 
     def render(self, context):
         try:
             # Get the variables from the context so the method is thread-safe.
-            my_event_list = self.event_list.resolve(context)
-            my_year = self.year.resolve(context)
-            my_month = self.month.resolve(context)
+            #my_event_list = self.event_list.resolve(context)
+            #my_year = self.year.resolve(context)
+            #my_month = self.month.resolve(context)
+            my_event_list = self.event_list
+            my_year = self.year
+            #pdb.set_trace()
+            my_month = self.month
             cal = EventCalendar(my_event_list)
             return cal.formatmonth(int(my_year), int(my_month))
         except ValueError:
@@ -68,7 +79,7 @@ class EventCalendar(HTMLCalendar):
             if day in self.events:
                 cssclass += ' filled'
                 href="/%d/%d/%d/"%(self.year,self.month,day)
-                return self.day_cell(cssclass, '<span class="dayNumber"><a href=%s>%d</a></span>' % (href,day))
+                return self.day_cell(cssclass, '<span class="dayNumber" title="%d"><a href=%s >%d</a></span>' % (day,href,day))
             return self.day_cell(cssclass, '<span class="dayNumberNoEvents">%d</span>' % (day))
         return self.day_cell('noday', '&nbsp;')
 

@@ -332,7 +332,7 @@ a:hover {
 
 .post .comment_body {
 	display: block;
-        width:500px;
+        width:400px;
         height:145px;
         float:left;
 	padding: 0px 0px 0px 0px;
@@ -490,6 +490,15 @@ a:hover {
 
 #calendar tbody td {
 	text-align: center;
+}
+
+#calendar td.filled {
+	background: #24130F;
+}
+
+#calendar .dayNumber {
+    font-size: 16px !important;
+    font-weight: bold;
 }
 
 #calendar #next {

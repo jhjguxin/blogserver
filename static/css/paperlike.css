@@ -492,6 +492,15 @@ a:hover {
 	text-align: center;
 }
 
+#calendar td.filled {
+	background: #24130F;
+}
+
+#calendar .dayNumber {
+    font-size: 18px !important;
+    font-weight: bold;
+}
+
 #calendar #next {
 	text-align: right;
 }

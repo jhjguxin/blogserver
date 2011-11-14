@@ -480,6 +480,14 @@ img.aligncenter {
 	text-align: right;
 }
 
+#calendar td.filled {
+	background: #24130F;
+}
+
+#calendar .dayNumber {
+    font-size: 16px !important;
+    font-weight: bold;
+}
 /* Footer */
 
 #footer {

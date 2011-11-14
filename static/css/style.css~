@@ -8,7 +8,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 body {
 	margin: 0px;
 	padding: 0;
-	background: #19233E url(/static/img/timeless/img01.jpg) no-repeat left top;
+	background: #19233E url(/static/img/img01.jpg) no-repeat left top;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	color: #72809F;
@@ -101,7 +101,7 @@ div#register form input {
 	width: 1000px;
 	height: 180px;
 	margin: 0 auto;
-	background: url(/static/img/timeless/img01.jpg) no-repeat left top;
+	background: url(/static/img/img01.jpg) no-repeat left top;
 }
 
 /* Menu */
@@ -153,11 +153,13 @@ div#register form input {
 /* Search */
 
 #search {
-	float: left;
+	float: right;
 }
 
 #search form {
-
+	float: right;
+	margin: 0;
+	padding: 4px 0px 0 0;
 }
 
 #search fieldset {
@@ -172,11 +174,9 @@ div#register form input {
 }
 
 #search-text {
-	float: left;
-	width: 220px;
-	height: 20px;
-	margin-right: 1px;
-	padding: 6px 5px 6px 5px;
+	width: 213px;
+	height: 28px;
+	padding: 6px 0 0 7px;
 	border: none;
 	color: #000000;
 }
@@ -262,13 +262,14 @@ div#register form input {
 	border-bottom: 4px dashed #203253;
 }
 
-.post .title  {
+.post .title a {
 	display: block;
 	padding: 0px 0px 10px 0px;
 	text-decoration: none;
 	text-transform: capitalize;
 	text-transform: uppercase;
 	font-weight: bold;
+	font-size: 28px;
 	color: #FFFFFF;
 }
 
@@ -410,7 +411,7 @@ div#register form input {
 	display: block;
         float:left;
         padding: 5px 0px 0px 0px;
-        width:400px;
+        width:560px;
 
 }
 
@@ -419,7 +420,7 @@ div#register form input {
 	display: block;
         float:left;
         padding: 5px 0px 0px 0px;
-        width:400px;
+        width:560px;
 }
 /* Sidebar */
 
@@ -559,7 +560,7 @@ div#register form input {
 
 #footer-bgcontent {
 	height: 110px;
-	background: url(/static/img/timeless/img01.jpg) repeat-x left top;
+	background: url(/static/img/img01.jpg) repeat-x left top;
 }
 
 #footer p {

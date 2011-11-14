@@ -12,7 +12,7 @@ Released   : 20110116
 -->
 {% load object_counts %}
 {% load date_counts %}
-
+{% load event_tags %}
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -127,14 +127,15 @@ Released   : 20110116
 </div>
                     <!--Google站内搜索结束-->
                 </li>
-                        <!--calendar>
+                        <!--calendar-->
                 <li>
 
                         <h2>calendar</h2>
-
-                        <iframe src="/calendar" frameborder="0" width="100%" height="200" scrolling="auto" ><a href=”/calendar”>你的浏览器不支持iframe页面嵌套，请点击这里访问页面内容。</a></iframe>
+                        <div id="calendar">
+                          {% event_calendar%}
+                        </div>
                 </li>
-                        <calendar-end-->
+                        <!--calendar-end-->
                 <li>
                         <h2>tags</h2>
                         <div id="tagclone">

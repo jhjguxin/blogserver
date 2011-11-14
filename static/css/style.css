@@ -541,6 +541,11 @@ div#register form input {
 	border-bottom: 1px solid #24130F;
 }
 
+#calendar td.filled {
+	background: #24130F;
+}
+
+
 #calendar #today {
 	background: #24130F;
 }
