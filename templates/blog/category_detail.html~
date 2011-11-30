@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load pagination_tags %}
-{% block title %}category_detail:{{ object.name }}{% endblock %}
+{% block title %}{{ object.name }}{% endblock %}
 {% block body %}
     <h2 class="category"> {{ object.name }} </h2>
     {% with object.post_set.all as posts %}
