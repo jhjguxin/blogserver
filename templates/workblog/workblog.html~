@@ -3,5 +3,5 @@
 {% block title %}jhjguxin's work blog{% endblock %}
 {% block body %}
 
-<pre><div id='workblog'>{% include "workblog/blog" %}</div></pre>
+<div id='workblog'><pre>{% include "workblog/blog" %}</pre></div>
 {% endblock %}

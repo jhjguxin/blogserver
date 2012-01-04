@@ -209,6 +209,11 @@ img.aligncenter {
 	text-decoration: none;
 }
 
+/*workblog*/
+#workblog {
+        white-space:pre-wrap; width:600px; 
+
+}
 /* Page */
 
 #page {

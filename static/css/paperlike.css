@@ -204,6 +204,11 @@ a:hover {
 	color: #FFFFFF;
 }
 
+/*workblog*/
+#workblog {
+        white-space:pre-wrap; width:600px; 
+
+}
 /* Page */
 
 #page {

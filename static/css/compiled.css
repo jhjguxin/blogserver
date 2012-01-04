@@ -191,7 +191,11 @@ hr { display: none; }
 	text-indent: -9999px;
 	color: #FFFFFF;
 }
+/*workblog*/
+#workblog {
+        white-space:pre-wrap; width:600px; 
 
+}
 /* Page */
 
 #page {

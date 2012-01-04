@@ -204,6 +204,11 @@ a:hover {
 	color: #FFFFFF;
 }
 
+/*workblog*/
+#workblog div{
+        white-space:pre-wrap; width:600px; }
+
+}
 /* Page */
 
 #page {
@@ -492,12 +497,12 @@ a:hover {
 	text-align: center;
 }
 
-#calendar td.filled {
+#calendar td.today {
 	background: #24130F;
 }
 
 #calendar .dayNumber {
-    font-size: 16px !important;
+    font-size: 18px !important;
     font-weight: bold;
 }
 
