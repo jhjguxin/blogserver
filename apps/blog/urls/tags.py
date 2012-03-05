@@ -1,14 +1,16 @@
 from django.conf.urls.defaults import *
-from blogserver.apps.blog.models import Tag
+#from blogserver.apps.blog.models import Tag
+from taggit.models import Tag
+from blogserver.apps.blog.models import Post
 
 display_dict = {
-    'queryset' : Tag.objects.all(),
-    'template_name' : 'blog/category_detail.html',
+    'queryset' : Post.live.all(),
+    'template_name' : 'blog/tag_detail.html',
 }
 
-urlpatterns = patterns('django.views.generic.list_detail',
+urlpatterns = patterns('blogserver.taggit.views',
     
     # Display Post in Category
-    url(r'^(?P<slug>[-\w]+)/$', 'object_detail', display_dict, name="tag_detail"),
+    url(r'^(?P<slug>[-\w]+)/$', 'tagged_object_list', display_dict, name="tag_detail"),
     
 )

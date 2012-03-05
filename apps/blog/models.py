@@ -11,6 +11,11 @@ from django.contrib.comments.signals import comment_will_be_posted
 from django.contrib.comments.models import Comment
 from markdown import markdown
 from blogserver.apps.blog.managers import LivePostManager
+##
+from blogserver.autoslug import AutoSlugField
+from blogserver.taggit.managers import TaggableManager
+from blogserver.taggit.models import TaggedItemBase
+#from blogserver.taggit.models import Tag
 
 import pdb
 #from markdown import markdown 可以尝试在编辑Post 后提交views里面转换
@@ -110,24 +115,17 @@ CATEGORY = (
     (u'专业', u'专业'),
     (u'杂文', u'杂文'),
 )
-class Tag(models.Model):
-  name=models.CharField(max_length=255,unique=True)
-  slug=models.SlugField(unique=True)
+class TagPost(TaggedItemBase):
 
-  def __unicode__(self):
-    return self.name
-            
-  class Meta:
-    ordering = ['name']
-        
-  @models.permalink
-  def get_absolute_url(self):
-    return('tag_detail', (), {'slug': self.slug })
+  content_object = models.ForeignKey('Post')
+      
+
 
 
 class Category(models.Model):
   name=models.CharField(max_length=255)
-  slug=models.SlugField(unique=True)
+  #slug=models.SlugField(unique=True)
+  slug=AutoSlugField(populate_from='name',unique=True,always_update=True)
       
   def __unicode__(self):
     return self.name
@@ -155,13 +153,18 @@ class Post(models.Model):
                 (HIDDEN_STATUS,'Hidden'),
              )
   title = models.CharField(max_length=255,unique=True,help_text=_('Title of the post.'))
-  slug = models.SlugField(unique_for_date="created_on",unique=True,help_text=_('Short title used in the URLs.'))
+  #slug = models.SlugField(unique_for_date="created_on",unique=True,help_text=_('Short title used in the URLs.'))
+  slug=AutoSlugField(populate_from=lambda instance: instance.title,
+                             unique_with=['author__name', 'date_published__month'],
+                             slugify=lambda value: value.replace(' ','-'),always_update=True)
+  #slug=AutoSlugField(unique=True,always_update=True)
   author = models.ForeignKey(User)
   status = models.IntegerField(_('status'),choices=STATUS_CHOICE,help_text=_('The status of this news.'))  
   category = models.ForeignKey(Category)
 
   img=models.ImageField('Image',upload_to='upload-img',blank=True,null=True)
-  tag=models.ManyToManyField(Tag,blank=True,null=True,help_text=_('Tags for the post.'))
+  #tag=models.ManyToManyField(Tag,blank=True,null=True,help_text=_('Tags for the post.'))
+  tags = TaggableManager(through=TagPost)
   content = models.TextField(blank=False)
   hoter=models.IntegerField(blank=True,default=0)
 #  comments = models.ForeignKey(Comment,blank=True,null=True)
@@ -192,8 +195,10 @@ class Post(models.Model):
     #from blogserver.middleware import threadlocals
     #if threadlocals.get_current_user():
     #    self.author = threadlocals.get_current_user()
+    #self.
     self.created_on = datetime.datetime.now()
     super(Post, self).save() 
+    #pdb.set_trace()
 
 
   @models.permalink

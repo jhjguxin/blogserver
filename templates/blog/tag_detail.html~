@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load pagination_tags %}
+
+{% block title %}tag_detail:{{ tag.name }}{% endblock %}
+{% block body %}
+    <h2 class="category"> {{ tag.name }} </h2>
+{% load taggit_tags %}
+{% related_tags object_list as related_tags %}
+{% tagged_objects tag in blog.Post as tags %}
+    {% with tags.all as posts %}
+        <div id="posts">
+            {% autopaginate posts 10 %}
+            {% for object in posts %}
+                {% include "blog/post.html" %}
+            {% endfor %}
+        </div>
+        {% paginate %}
+    {% endwith %}
+{% endblock %}

@@ -1,6 +1,242 @@
                               FutureDial NanJing-2012
-目标：整理rewrite my blog的相关资料开始着手重写我的django blog,continue to make HTC sync for mac crash,fix the fanfou summary work incorrect
-进度：整理rewrite my blog的相关资料开始着手重写我的django blog,continue to make HTC sync for mac crash,fix the fanfou summary work incorrect
+目标：整理rewrite my blog的相关资料开始着手重写我的django blog,continue to make HTC sync for mac crash,fix the fanfou summary work incorrect,add auto-line in workblog 
+进度：整理rewrite my blog的相关资料开始着手重写我的django blog,continue to make HTC sync for mac crash,fix the fanfou summary work incorrect,add auto-line in workblog 
 备注：
 疑问：
 date:Wed.2012.01.04
+
+目标：整理rewrite my blog的相关资料开始着手重写我的django blog,continue to make HTC sync for mac crash,try to solve enki的认证问题
+进度：整理rewrite my blog的相关资料开始着手重写我的django blog,continue to make HTC sync for mac crash,try to solve enki的认证问题
+备注：
+疑问：
+date:Thu.2012.01.05
+
+目标：按照自己的想法来更改enki,continue to make HTC sync for mac crash,fix some error
+进度：按照自己的想法来更改enki,continue to make HTC sync for mac crash,fix some error
+备注：又是周五
+疑问：
+date:Fri.2012.01.06
+
+目标：按照自己的想法来更改enki,continue to make HTC sync for mac crash,fix some error
+进度：按照自己的想法来更改enki,continue to make HTC sync for mac crash,fix some error
+备注：
+疑问：
+date:Mon.2012.01.09
+
+目标：按照自己的想法来更改enki,continue to make HTC sync for mac crash,fix some error,In enki add Foreign Key named author for post
+进度：按照自己的想法来更改enki,continue to make HTC sync for mac crash,fix some error,In enki add Foreign Key named author for post
+备注：
+疑问：
+date:Tue.2012.01.10
+
+目标：按照自己的想法来更改enki,continue to make HTC sync for mac crash,fix some error,
+进度：按照自己的想法来更改enki,continue to make HTC sync for mac crash,fix some error,
+备注：今天公司聚餐
+疑问：
+date:Wed.2012.01.11
+
+目标：按照自己的想法来更改enki,continue to make HTC sync for mac crash,fix some error,add photo app to enki(base on ruby china)
+进度：按照自己的想法来更改enki,continue to make HTC sync for mac crash,fix some error,add photo app to enki(base on ruby china)
+备注：
+疑问：
+date:Thu.2012.01.12
+
+目标：按照自己的想法来更改enki,continue to make HTC sync for mac crash,fix some error,add photo app to enki(base on ruby china),fix paginate error
+进度：按照自己的想法来更改enki,continue to make HTC sync for mac crash,fix some error,add photo app to enki(base on ruby china),fix paginate error
+备注：又是周五
+疑问：
+date:Fri.2012.01.13
+
+目标：按照自己的想法来更改enki,continue to make HTC sync for mac crash,fix some error,add photo app to enki(base on ruby china),fix paginate error
+进度：按照自己的想法来更改enki,continue to make HTC sync for mac crash,fix some error,add photo app to enki(base on ruby china),fix paginate error
+备注：
+疑问：
+date:Mon.2012.01.16
+
+目标：按照自己的想法来更改enki,continue to make HTC sync for mac crash,fix some error,	add attachment to post,fix paginate error
+进度：按照自己的想法来更改enki,continue to make HTC sync for mac crash,fix some error,	add attachment to post,fix paginate error
+备注：
+疑问：
+date:Tue.2012.01.17
+
+目标：按照自己的想法来更改enki,continue to make HTC sync for mac crash,fix some error,support multi attachment files to post,add thin+nginx+mysql to enki
+进度：按照自己的想法来更改enki,continue to make HTC sync for mac crash,fix some error,support multi attachment files to post,add thin+nginx+mysql to enki
+备注：
+疑问：
+date:Wed.2012.01.18
+
+目标：按照自己的想法来更改enki,fix some error,总结近期work plan，准备回家
+进度：按照自己的想法来更改enki,fix some error,总结近期work plan，准备回家
+备注：
+疑问：
+date:Thu.2012.01.19
+
+目标：It's time to go home,and enjoy my new year holiday until 1-29
+进度：It's time to go home,and enjoy my new year holiday until 1-29
+备注：又是周五
+疑问：
+date:Fri.2012.01.20
+
+目标：the first day to work,in 2012.为2012年的工作做好准备.Setting my githubpages base on octopress.
+进度：the first day to work,in 2012.为2012年的工作做好准备.Setting my githubpages base on octopress.
+备注：
+疑问：
+date:Sun.2012.01.29
+
+目标：Finish to Setting my githubpages base on octopress
+进度：Finish to Setting my githubpages base on octopress
+备注：
+疑问：
+date:Mon.2012.01.30
+
+目标：fix the ruby dependence for enki,and deploy enki to heroku
+进度：fix the ruby dependence for enki,and deploy enki to heroku
+备注：
+疑问：
+date:Tue.2012.01.31
+
+目标：by use rvm fix the ruby dependence for enki,and deploy enki to heroku(尝试heroku的ruby版本控制)
+进度：by use rvm fix the ruby dependence for enki,and deploy enki to heroku(尝试heroku的ruby版本控制)
+备注：
+疑问：
+date:Wed.2012.02.01
+
+目标：test HTC syc for windows,使用solr实现enki支持全文和回复内容的搜索,改进fanfou的order viewi显示,add edit order to user
+进度：test HTC syc for windows,使用solr实现enki支持全文和回复内容的搜索,改进fanfou的order viewi显示,add edit order to user
+备注：
+疑问：
+date:Thu.2012.02.02
+
+目标：test HTC syc for windows,使用solr实现enki支持全文和回复内容的搜索
+进度：test HTC syc for windows,使用solr实现enki支持全文和回复内容的搜索
+备注：又是周五
+疑问：
+date:Fri.2012.02.03
+
+目标：test HTC Sync SDK for Media manager,fix the breadcrumbs i18n error,add finish the main page's i18n(CN,EN) translate
+进度：test HTC Sync SDK for Media manager,fix the breadcrumbs i18n error,add finish the main page's i18n(CN,EN) translate
+备注：
+疑问：
+date:Mon.2012.02.06
+
+目标：test HTC Sync SDK for Media manager,add finish the main page's i18n(CN,EN) translate
+进度：test HTC Sync SDK for Media manager,add finish the main page's i18n(CN,EN) translate
+备注：
+疑问：
+date:Tue.2012.02.07
+
+目标：test HTC Sync SDK for Media manager,再折腾一下solr吧
+进度：test HTC Sync SDK for Media manager,再折腾一下solr吧
+备注：
+疑问：
+date:Wed.2012.02.08
+
+目标：test HTC syc for windows,use bootstrap for enki's front site page 
+进度：test HTC syc for windows,use bootstrap for enki's front site page
+备注：
+疑问：
+date:Thu.2012.02.09
+
+目标：test HTC syc for windows,use bootstrap for enki's front site page
+进度：HTC反映5617版本同步时会自动断开，然后又自己连上，重现此问题并抓取LOG,use bootstrap for enki's front site page
+备注：又是周五
+疑问：
+date:Fri.2012.02.10
+
+目标：test HTC syc for windows,再折腾一下solr吧,fix some bug
+进度：test HTC syc for windows,再折腾一下solr吧(修改Rakefile文件，用rack来做),fix some bug
+备注：
+疑问：
+date:Mon.2012.02.13
+
+目标：enki 做个收尾，然后开始做支付的demo UI就用bootstrap好了，重现[HTC Sync v5623] Message "No Storage card found" popped up after swith connection from "IPT" to "HTC Sync".
+进度：enki 做个收尾，然后开始做支付的demo UI就用bootstrap好了，重现[HTC Sync v5623] Message "No Storage card found" popped up after swith connection from "IPT" to "HTC Sync".
+备注：
+疑问：
+date:Tue.2012.02.14
+
+目标：开始做支付的demo UI就用bootstrap好了，HTC反映5617版本同步时会自动断开，然后又自己连上，重现此问题并抓取LOG,use bootstrap for enki's front site page
+
+进度：开始做支付的demo UI就用bootstrap好了，HTC反映5617版本同步时会自动断开，然后又自己连上，重现此问题并抓取LOG,use bootstrap for enki's front site page(adb older  vesion),adb forward tcp:7890 tcp:7890   &&  telnet 127.0.0.1 7890  adb forward tcp:8182 tcp:8182   &&  telnet 127.0.0.1 8182
+
+备注：
+疑问：
+date:Wed.2012.02.15
+
+目标：开始做支付的demo UI就用bootstrap好了,add user,弄懂bootstarp,HTC反映5617版本同步时会自动断开，然后又自己连上，重现此问题并抓取LOG,adb forward tcp:7890 tcp:7890   &&  telnet 127.0.0.1 7890  adb forward tcp:8182 tcp:8182   &&  telnet 127.0.0.1 8182
+进度：开始做支付的demo UI就用bootstrap好了,add user,弄懂bootstarp,HTC反映5617版本同步时会自动断开，然后又自己连上，重现此问题并抓取LOG,adb forward tcp:7890 tcp:7890   &&  telnet 127.0.0.1 7890  adb forward tcp:8182 tcp:8182   &&  telnet 127.0.0.1 8182
+备注：
+疑问：
+date:Thu.2012.02.16
+
+目标：开始做支付的demo UI就用bootstrap好了,add undo mod,弄懂bootstarp,HTC反映5617版本同步时会自动断开，然后又自己连上，重现此问题并抓取LOG,adb forward tcp:7890 tcp:7890   &&  telnet 127.0.0.1 7890  adb forward tcp:8182 tcp:8182   &&  telnet 127.0.0.1 8182
+进度：开始做支付的demo UI就用bootstrap好了,add undo mod,弄懂bootstarp,HTC反映5617版本同步时会自动断开，然后又自己连上，重现此问题并抓取LOG,adb forward tcp:7890 tcp:7890   &&  telnet 127.0.0.1 7890  adb forward tcp:8182 tcp:8182   &&  telnet 127.0.0.1 8182
+备注：又是周五
+疑问：
+date:Fri.2012.02.17
+
+目标：开始做支付的demo,完善model字段设计和加入支付的api,HTC反映5617版本同步时会自动断开，然后又自己连上，重现此问题并抓取LOG,adb forward tcp:7890 tcp:7890   &&  telnet 127.0.0.1 7890  adb forward tcp:8182 tcp:8182   &&  telnet 127.0.0.1 8182
+进度：开始做支付的demo,完善model字段设计和加入支付的api,HTC反映5617版本同步时会自动断开，然后又自己连上，重现此问题并抓取LOG(use enr_u to test this issue),adb forward tcp:7890 tcp:7890   &&  telnet 127.0.0.1 7890  adb forward tcp:8182 tcp:8182   &&  telnet 127.0.0.1 8182
+备注：
+疑问：
+date:Mon.2012.02.20
+
+目标：开始做支付的demo,完善model字段设计和加入支付的api,HTC反映5617版本同步时会自动断开，然后又自己连上，重现此问题并抓取LOG(use enr_u to test this issue),adb forward tcp:7890 tcp:7890   &&  telnet 127.0.0.1 7890  adb forward tcp:8182 tcp:8182   &&  telnet 127.0.0.1 8182
+进度：开始做支付的demo,完善model字段设计和加入支付的api,HTC反映5617版本同步时会自动断开，然后又自己连上，重现此问题并抓取LOG(use enr_u to test this issue),adb forward tcp:7890 tcp:7890   &&  telnet 127.0.0.1 7890  adb forward tcp:8182 tcp:8182   &&  telnet 127.0.0.1 8182
+备注：预计本周能够完成payment-china的主体功能
+疑问：
+date:Tue.2012.02.21
+
+目标：开始做支付的demo,finish the product ,wallet's view and so on,HTC反映5617版本同步时会自动断开，然后又自己连上，重现此问题并抓取LOG(use enr_u to test this issue),adb forward tcp:7890 tcp:7890   &&  telnet 127.0.0.1 7890  adb forward tcp:8182 tcp:8182   &&  telnet 127.0.0.1 8182
+进度：开始做支付的demo,finish the product ,wallet's view and so on,HTC反映5617版本同步时会自动断开，然后又自己连上，重现此问题并抓取LOG(use enr_u to test this issue),adb forward tcp:7890 tcp:7890   &&  telnet 127.0.0.1 7890  adb forward tcp:8182 tcp:8182   &&  telnet 127.0.0.1 8182
+备注：预计本周到下周末能够完成payment-china的主体功能
+疑问：
+date:Wed.2012.02.22
+
+目标：try the easy task,支付的demo,HTC反映5617版本同步时会自动断开,然后又自己连上，重现此问题并抓取LOG(use enr_u to test this issue),adb forward tcp:7890 tcp:7890   &&  telnet 127.0.0.1 7890  adb forward tcp:8182 tcp:8182   &&  telnet 127.0.0.1 8182
+进度：try the easy task,支付的demo,HTC反映5617版本同步时会自动断开,然后又自己连上，重现此问题并抓取LOG(use enr_u to test this issue),adb forward tcp:7890 tcp:7890   &&  telnet 127.0.0.1 7890  adb forward tcp:8182 tcp:8182   &&  telnet 127.0.0.1 8182
+备注：
+疑问：
+date:Thu.2012.02.23
+
+目标：这3天开始测试版本升级的问题。需要恢复干净的测试机，在上面安装build 5579/5606/5617，连接手机后进行同步操作，并记录结果。然后安装setup_3.2.1_no_redist.exe进行升级后再进行一些同步操作测试，并查看是否对之前的同步结果有影响。此操作需在不同的OS上进行,做支付的demo,
+进度：这3天开始测试版本升级的问题。需要恢复干净的测试机，在上面安装build 5579/5606/5617，连接手机后进行同步操作，并记录结果。然后安装setup_3.2.1_no_redist.exe进行升级后再进行一些同步操作测试，并查看是否对之前的同步结果有影响。此操作需在不同的OS上进行,做支付的demo,
+备注：又是周五
+疑问：
+date:Fri.2012.02.24
+
+目标：这3天开始测试版本升级的问题。需要恢复干净的测试机，在上面安装build 5579/5606/5617，连接手机后进行同步操作，并记录结果。然后安装setup_3.2.1_no_redist.exe进行升级后再进行一些同步操作测试，并查看是否对之前的同步结果有影响。此操作需在不同的OS上进行,做支付的demo,
+进度：这3天开始测试版本升级的问题。需要恢复干净的测试机，在上面安装build 5579/5606/5617，连接手机后进行同步操作，并记录结果。然后安装setup_3.2.1_no_redist.exe进行升级后再进行一些同步操作测试，并查看是否对之前的同步结果有影响。此操作需在不同的OS上进行,做支付的demo,
+备注：
+疑问：
+date:Mon.2012.02.27
+
+目标：这3天开始测试版本升级的问题。需要恢复干净的测试机，在上面安装build 5579/5606/5617，连接手机后进行同步操作，并记录结果。然后安装setup_3.2.1_no_redist.exe进行升级后再进行一些同步操作测试，并查看是否对之前的同步结果有影响。此操作需在不同的OS上进行,做支付的demo,
+进度：这3天开始测试版本升级的问题。需要恢复干净的测试机，在上面安装build 5579/5606/5617，连接手机后进行同步操作，并记录结果。然后安装setup_3.2.1_no_redist.exe进行升级后再进行一些同步操作测试，并查看是否对之前的同步结果有影响。此操作需在不同的OS上进行(详细比对验证不同版本不同依赖组件的差异性),做支付的demo,
+备注：
+疑问：
+date:Tue.2012.02.28
+
+目标：支付的demo,finish main view and controlers,test Nero's Media Center,vertify BUILD version 2560
+进度：支付的demo,finish main view and controlers,test Nero's Media Center,vertify BUILD version 2560
+备注：
+疑问：
+date:Wed.2012.02.29
+
+目标：支付的demo,finish recharge function,edit some view,place the model method on right seat,test Nero's Media Center,vertify BUILD version 2560
+进度：支付的demo,finish recharge function,edit some view,place the model method on right seat,test Nero's Media Center,vertify BUILD version 2560
+备注：
+疑问：
+date:Thu.2012.03.01
+
+目标：收尾payment-china,test Nero's Media Center,vertify BUILD version 2560
+进度：收尾payment-china,test Nero's Media Center,vertify BUILD version 2560
+备注：又是周五
+疑问：
+date:Fri.2012.03.02
+
+目标：rewrite the django blogserver mainchange is Tag field,test Nero's Media Center for Mac
+进度：rewrite the django blogserver mainchange is Tag field,test Nero's Media Center for Mac
+备注：
+疑问：
+date:Mon.2012.03.05

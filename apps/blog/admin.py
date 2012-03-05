@@ -3,15 +3,14 @@
 #admin.py
 
 from django.contrib import admin
-from blogserver.apps.blog.models import Comment,User,Post, Category, Tag,Link
+from blogserver.apps.blog.models import Comment,User,Post, Category,Link
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserChangeForm
 from django.utils.translation import ugettext, ugettext_lazy as _
 import pdb
 from blogserver.apps.blog.forms import PostsForm
 
-def tags(obj):
-    return ", ".join([x.name for x in obj.tag.all()])
+
 
 def categories(obj):
     #pdb.set_trace()
@@ -26,14 +25,11 @@ def post_count(obj):
 class PostAdmin(admin.ModelAdmin):
 
 
-    prepopulated_fields = {
-        'slug': ('title',),
-    }
+
     date_hierarchy = 'created_on'
-    list_display = ('title', 'status', author , 'created_on','date_published', 'date_modified', tags, categories)
-    list_filter = ('status', 'tag', 'category',"author")
+    list_display = ('title', 'status', author , 'created_on','date_published', 'date_modified', categories)
+    list_filter = ('status',  'category',"author")
     search_fields = ('title','author__username','category__name','^author__first_name', '^author__last_name',)
-    exclude = ('author',)
     actions = ['make_published']
 
     form=PostsForm
@@ -66,16 +62,14 @@ class PostAdmin(admin.ModelAdmin):
 
     
 class CategoryAdmin(admin.ModelAdmin):
-    prepopulated_fields = {
-        'slug': ('name',),
-    }
-
-class TagAdmin(admin.ModelAdmin):
     list_display = ('name', post_count)
 
-    prepopulated_fields = {
-        'slug': ('name',),
-    }
+
+
+#class TagAdmin(admin.ModelAdmin):
+#    list_display = ('name', post_count)
+
+
 class LinkAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_on'
     list_display = ('name', 'url', 'describe' , 'created_on','date_modified',)
@@ -113,7 +107,7 @@ admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin) 
 admin.site.register(Post,PostAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Tag, TagAdmin)
+#admin.site.register(Tag, TagAdmin)
 admin.site.register(Link, LinkAdmin)
 #admin.site.register(Shop,ShopAdmin)
 #admin.site.register(New,NewAdmin)

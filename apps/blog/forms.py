@@ -4,7 +4,7 @@ from django import forms
 from blogserver.apps.blog.models import Post
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm,UserChangeForm,PasswordChangeForm
-from blogserver.apps.blog.models import Comment,User,Post, Category, Tag
+from blogserver.apps.blog.models import Comment,User,Post, Category
 import pdb
 import datetime
 from django.utils.translation import ugettext_lazy as _
@@ -30,10 +30,12 @@ def auto_tag_slug():
 class PostsForm(forms.ModelForm):
     """Creates/updates a blog post."""
     #tag = forms.ModelMultipleChoiceField(queryset=Tag.objects.all()) 
+    #author=forms.ModelMultipleChoiceField(widget=forms.HiddenInput,queryset=User.objects.all())
 
     class Meta:
         model = Post
-        fields = ('id','title','author','slug','status','tag','category','img','content',)
+        fields = ('id','title','author','status','tags','category','img','content',)
+        exclude = ('author') 
 #        fields = ('id','title','author','tag','categories','content','hoter',)
 
 

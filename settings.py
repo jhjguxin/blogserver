@@ -120,7 +120,8 @@ INSTALLED_APPS = (
     'blogserver.gravatar',
     'blogserver.template_utils',
     'blogserver.pagination',
-
+    'taggit',
+    'autoslug',
 )
 AUTH_PROFILE_MODULE	 = 'profiles.profile'
 #FIXTURE_DIRS = (

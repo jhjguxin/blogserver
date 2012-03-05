@@ -11,6 +11,7 @@ Released   : 20110116
 
 -->
 {% load object_counts %}
+{% load taggit_tags %}
 {% load date_counts %}
 {% load event_tags %}
 
@@ -35,7 +36,8 @@ Released   : 20110116
 <script type="text/javascript" src="/static/js/syntax_highlighter/shBrushVb.js"></script>
 <script type="text/javascript" src="/static/js/syntax_highlighter/shBrushXml.js"></script>
 
-<script src="http://code.jquery.com/jquery-1.5.js"></script>
+<script src="/static/js/jquery-1.5.js"></script>
+<script type="text/javascript" src="/static/js/plusone.js"></script>
 <title>风尘--{% block title %}{% endblock %}</title>
 
 {% block keywords %}
@@ -140,10 +142,11 @@ Released   : 20110116
                 <li>
                         <h2>tags</h2>
                         <div id="tagclone">
-                                {% object_counts for blog.Tag as tags %}
-                                    {% for tag in tags %}
-                                        {% ifnotequal tag.post_set.count 0 %}
-                                            <a href="{{ tag.get_absolute_url }}">{{ tag.name }} ({{tag.post_set.count }})</a>
+                               {% tags_for_model blog.Post as post_tags %}
+
+                                    {% for tag in post_tags %}
+                                        {% ifnotequal posttag.post_set.count 0 %}
+                                            <a href="{{ posttag.tag.get_absolute_url }}">{{ posttag.tag.name }}</a>
                                         {% endifnotequal %}
                                     {% endfor %}
                         </div>

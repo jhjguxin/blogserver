@@ -37,8 +37,9 @@ def post_index(request, post_id=None):
         form = PostsForm(request.POST, instance=post)
         if form.is_valid():
             #pdb.set_trace()
-            ct=form.cleaned_data
-            post=form.save()
+            instance = form.save(commit=False)
+            instance.author = request.user
+            instance.save() 
 
 
         return SerializeOrRedirect(reverse('post_index'), { 'posts': posts })
@@ -87,12 +88,18 @@ def post(request, post_id=None):
         
         form = PostsForm(request.POST, instance=post)
         if edit:
+            #pdb.set_trace()
             form.save()
+            instance = form.instance
+            instance.author = request.user
+            instance.save() 
         else:
             if form.is_valid():
                 #pdb.set_trace()
                 ct=form.cleaned_data
-                post=form.save()
+                instance = form.save(commit=False)
+                instance.author = request.user
+                instance.save() 
         posts = Post.objects.all()
         return SerializeOrRedirect(reverse('posts_list'), { 'posts': posts })
             

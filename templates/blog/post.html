@@ -37,7 +37,7 @@
     </div>
     <div class="post_tags">
            标签：
-        {% for tag in object.tag.all %}
+        {% for tag in object.tags.all %}
             <a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>
         {% endfor %}
     </div>

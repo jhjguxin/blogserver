@@ -4,7 +4,7 @@
 
 <div class="post">
     <div class="header">
-        <h2><a class="title" href="{{ object.get_absolute_url }}" title="{{ object.title }}">{{ object.title }}</a></h2><g:plusone size="medium" href="{{ object.get_absolute_url }}"></g:plusone>
+        <h2><a class="title" href="{{ object.get_absolute_url }}" title="{{ object.title }}">{{ object.title }}</a><g:plusone size="medium" href="{{ object.get_absolute_url }}"></g:plusone></h2>
 
         <p class="meta"> 
 			{{ object.date_published|date:"l, F jS, Y @ g:i A" }} \\
