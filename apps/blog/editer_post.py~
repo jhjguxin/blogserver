@@ -89,7 +89,7 @@ def post(request, post_id=None):
         form = PostsForm(request.POST, instance=post)
         if edit:
             pdb.set_trace()
-            #form.save()
+            form.save()
             instance = form.instance
             instance.author = request.user
             instance.save() 

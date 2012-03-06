@@ -28,8 +28,8 @@ class PostAdmin(admin.ModelAdmin):
 
     date_hierarchy = 'created_on'
     list_display = ('title', 'status', author , 'created_on','date_published', 'date_modified', categories)
-    list_filter = ('status',  'category',"author")
-    search_fields = ('title','author__username','category__name','^author__first_name', '^author__last_name',)
+    list_filter = ('status',  'category',"author",'tags__name')
+    search_fields = ('title','author__username','category__name','^author__first_name', '^author__last_name','tags__name',)
     actions = ['make_published']
 
     form=PostsForm

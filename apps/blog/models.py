@@ -164,7 +164,7 @@ class Post(models.Model):
 
   img=models.ImageField('Image',upload_to='upload-img',blank=True,null=True)
   #tag=models.ManyToManyField(Tag,blank=True,null=True,help_text=_('Tags for the post.'))
-  tags = TaggableManager(through=TagPost)
+  tags = TaggableManager(through=TagPost,blank=True,help_text=_('Tags for the post.Support only En-lang'))
   content = models.TextField(blank=False)
   hoter=models.IntegerField(blank=True,default=0)
 #  comments = models.ForeignKey(Comment,blank=True,null=True)
