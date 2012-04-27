@@ -8,8 +8,8 @@ display_dict = {
     'template_name' : 'blog/tag_detail.html',
 }
 
-urlpatterns = patterns('blogserver.taggit.views',
-    
+#urlpatterns = patterns('blogserver.taggit.views',
+urlpatterns = patterns('taggit.views',    
     # Display Post in Category
     url(r'^(?P<slug>[-\w]+)/$', 'tagged_object_list', display_dict, name="tag_detail"),
     

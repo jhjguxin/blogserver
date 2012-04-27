@@ -1,4 +1,7 @@
 #-*- coding=utf-8 -*-
+#################
+#NOT virtualenv # 
+#################
 import os, sys
 import pdb
 import django.core.handlers.wsgi

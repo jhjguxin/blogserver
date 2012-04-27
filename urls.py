@@ -25,20 +25,20 @@ urlpatterns = patterns('',
 #    (r'^static/img/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/home/jhjguxin/Desktop/djcode/blogserver/static/img'}),
 
     # Blog
-    (r'^', include('apps.blog.urls.posts')),
+    (r'^', include('blogserver.apps.blog.urls.posts')),
     # Categories
-    (r'^categories/', include('apps.blog.urls.categories')),
+    (r'^categories/', include('blogserver.apps.blog.urls.categories')),
     
     # Tag
-    (r'^tag/', include('apps.blog.urls.tags')),
+    (r'^tag/', include('blogserver.apps.blog.urls.tags')),
     # Comments
     (r'^comments/', include('django.contrib.comments.urls')),
     # about
-    (r'^about/', include('apps.about.urls')),
+    (r'^about/', include('blogserver.apps.about.urls')),
 
-    (r'^git/', include('apps.git.urls')),
+    (r'^git/', include('blogserver.apps.git.urls')),
 
-    (r'^workblog/', include('apps.workblog.urls')),
+    (r'^workblog/', include('blogserver.apps.workblog.urls')),
 )
 
 from django.conf import settings

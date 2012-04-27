@@ -4,7 +4,7 @@ from taggit.models import Tag
 from blogserver.apps.blog.models import Post
 
 display_dict = {
-    'queryset' : Post.live.objects.all(),
+    'queryset' : Post.live.all(),
     'template_name' : 'blog/tag_detail.html',
 }
 

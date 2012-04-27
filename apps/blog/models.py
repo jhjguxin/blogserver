@@ -9,13 +9,17 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.comments.signals import comment_will_be_posted
 from django.contrib.comments.models import Comment
-from markdown import markdown
+from blogserver.markdown import markdown
 from blogserver.apps.blog.managers import LivePostManager
 ##
-from blogserver.autoslug import AutoSlugField
-from blogserver.taggit.managers import TaggableManager
-from blogserver.taggit.models import TaggedItemBase
+#from blogserver.autoslug import AutoSlugField
+#from blogserver.taggit.managers import TaggableManager
+#from blogserver.taggit.models import TaggedItemBase
 #from blogserver.taggit.models import Tag
+from autoslug import AutoSlugField
+from taggit.managers import TaggableManager
+from taggit.models import TaggedItemBase
+
 
 import pdb
 #from markdown import markdown 可以尝试在编辑Post 后提交views里面转换
